@@ -17,7 +17,7 @@ export default withPwa(defineConfig({
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: 'favicon.ico' }],
-    ['link', { rel: 'mask-icon', href: '/favicon.svg', color: '#ffffff' }],
+    ['link', { rel: 'mask-icon', href: 'favicon.svg', color: '#ffffff' }],
     ['meta', {
       name: 'keywords',
       content: 'PWA, VitePress, workbox, Vite, vite-plugin',
