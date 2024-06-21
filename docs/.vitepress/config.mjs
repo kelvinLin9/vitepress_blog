@@ -16,13 +16,13 @@ export default withPwa(defineConfig({
   description: 'Vite Plugin PWA Integration example for VitePress',
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
-    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
     ['link', { rel: 'mask-icon', href: '/favicon.svg', color: '#ffffff' }],
     ['meta', {
       name: 'keywords',
       content: 'PWA, VitePress, workbox, Vite, vite-plugin',
     }],
-    ['link', { rel: 'apple-touch-icon', href: '/icons/icon-192x192.png', sizes: '192x192' }],
+    ['link', { rel: 'apple-touch-icon', href: './icons/icon-192x192.png', sizes: '192x192' }],
   ],
   themeConfig: {
     footer: {
@@ -52,17 +52,17 @@ export default withPwa(defineConfig({
       theme_color: '#ffffff',
       icons: [
         {
-          src: 'icons/icon-192x192.png',
+          src: './icons/icon-192x192.png',
           sizes: '192x192',
           type: 'image/png',
         },
         {
-          src: 'icons/icon-512x512.png',
+          src: './icons/icon-512x512.png',
           sizes: '512x512',
           type: 'image/png',
         },
         {
-          src: 'icons/icon-512x512.png',
+          src: './icons/icon-512x512.png',
           sizes: '512x512',
           type: 'image/png',
           purpose: 'any maskable',
