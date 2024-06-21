@@ -11,6 +11,7 @@ export default withPwa(defineConfig({
     },
   },
   base,
+  assetsDir: './assets/ja', // pwa prompt
   lang: 'en-US',
   title: 'VitePress PWA',
   description: 'Vite Plugin PWA Integration example for VitePress',
