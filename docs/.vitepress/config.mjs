@@ -22,7 +22,7 @@ export default withPwa(defineConfig({
       name: 'keywords',
       content: 'PWA, VitePress, workbox, Vite, vite-plugin',
     }],
-    ['link', { rel: 'apple-touch-icon', href: '/icon-192x192.png', sizes: '192x192' }],
+    ['link', { rel: 'apple-touch-icon', href: '/icons/icon-192x192.png', sizes: '192x192' }],
   ],
   themeConfig: {
     footer: {
@@ -52,17 +52,17 @@ export default withPwa(defineConfig({
       theme_color: '#ffffff',
       icons: [
         {
-          src: 'icon-192x192.png',
+          src: 'icons/icon-192x192.png',
           sizes: '192x192',
           type: 'image/png',
         },
         {
-          src: 'icon-512x512.png',
+          src: 'icons/icon-512x512.png',
           sizes: '512x512',
           type: 'image/png',
         },
         {
-          src: 'icon-512x512.png',
+          src: 'icons/icon-512x512.png',
           sizes: '512x512',
           type: 'image/png',
           purpose: 'any maskable',
