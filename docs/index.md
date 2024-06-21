@@ -23,4 +23,28 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
-# 12345698
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import { storeToRefs } from "pinia"
+import { useWebChatStore } from "./store/webchat"
+
+const webChatStore = useWebChatStore()
+const { appState } = storeToRefs(webChatStore)
+const appReady = webChatStore.appReady
+const getSubList = webChatStore.getSubList
+const startMMS = webChatStore.startMMS
+
+
+const data = ref({})
+const weatherInfo = ref({});
+onMounted(async () => {
+  startMMS()
+  const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  data.value = res
+  console.log(res)
+});
+</script>
+
+## hi
+

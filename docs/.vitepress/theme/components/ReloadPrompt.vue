@@ -37,8 +37,8 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <div>Offline Ready: {{ offlineReady }}</div>
-  <div>Need Refresh: {{ needRefresh }}</div>
+  <!-- <div>Offline Ready: {{ offlineReady }}</div>
+  <div>Need Refresh: {{ needRefresh }}</div> -->
   <template v-if="offlineReady || needRefresh">
     <div
       class="pwa-toast"

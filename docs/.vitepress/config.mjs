@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
+import { fileURLToPath, URL } from 'node:url'
 
 const base = '/vitepress_blog/' // '/vite-plugin-pwa/'
 
@@ -12,8 +13,9 @@ export default withPwa(defineConfig({
   },
   base,
   assetsDir: './assets/ja', // pwa prompt
+  publicDir: '../public',
   lang: 'en-US',
-  title: 'VitePress PWA',
+  title: 'VitePress',
   description: 'Vite Plugin PWA Integration example for VitePress',
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
@@ -31,21 +33,79 @@ export default withPwa(defineConfig({
       copyright: 'Copyright © 2024',
     },
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'About', link: '/about', activeMatch: '/about' },
       {
-        text: 'Packages',
+        text: 'Jujue',
         items: [
-          { text: 'Foo', link: '/packages/foo' },
-          { text: 'Bar', link: '/packages/bar' },
+          { text: 'Content', link: '/guide/Jujue/Content/1' },
+          { text: 'Media', link: '/guide/Jujue/Media/1' },
+          { text: 'WebSite', link: '/guide/Jujue/Website/1' },
         ],
       },
+      { text: 'Worker', link: '/guide/Worker' },
+      { text: 'Agents', link: '/guide/Agents' },
+
+    ],
+    sidebar: {
+      '/guide/': [
+        {
+          text: 'Jujue',
+          collapsible: true,
+          items: [
+            {
+              text: 'Content',
+              collapsible: true,
+              items: [
+                { text: 'Content 1', link: '/guide/Jujue/Content/1' },
+                { text: 'Content 2', link: '/guide/Jujue/Content/2' }
+              ]
+            },
+            {
+              text: 'Media',
+              collapsible: true,
+              items: [
+                { text: 'Media 1', link: '/guide/Jujue/Media/1' },
+                { text: 'Media 2', link: '/guide/Jujue/Media/2' }
+              ]
+            },
+            {
+              text: 'WebSite',
+              collapsible: true,
+              items: [
+                { text: 'Website 1', link: '/guide/Jujue/Website/1' },
+                { text: 'Website 2', link: '/guide/Jujue/Website/2' }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Worker',
+          collapsible: true,
+          items: [
+            { text: 'Worker Overview', link: '/guide/Worker/' }
+            // 其他 Worker 相关页面
+          ]
+        },
+        {
+          text: 'Agents',
+          collapsible: true,
+          items: [
+            { text: 'Agents Overview', link: '/guide/Agents/' }
+            // 其他 Agents 相关页面
+          ]
+        }
+      ]
+    },
+    search : {
+      provider: 'local'
+    },
+    socialLinks: [
+      { icon: "github", link: "" },
     ],
   },
   pwa: {
     mode: 'development',
     // registerType: 'autoUpdate',
-    // injectRegister: 'script-defer',
+    injectRegister: 'script-defer',
     includeAssets: ['favicon.ico'],
     manifest: {
       name: 'VitePress PWA',
