@@ -22,12 +22,12 @@ export default withPwa(defineConfig({
       name: 'keywords',
       content: 'PWA, VitePress, workbox, Vite, vite-plugin',
     }],
-    ['link', { rel: 'apple-touch-icon', href: '/pwa-192x192.png', sizes: '192x192' }],
+    ['link', { rel: 'apple-touch-icon', href: '/icon-192x192.png', sizes: '192x192' }],
   ],
   themeConfig: {
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2022-PRESENT Anthony Fu',
+      copyright: 'Copyright © 2024',
     },
     nav: [
       { text: 'Home', link: '/' },
@@ -52,17 +52,17 @@ export default withPwa(defineConfig({
       theme_color: '#ffffff',
       icons: [
         {
-          src: 'pwa-192x192.png',
+          src: 'icon-192x192.png',
           sizes: '192x192',
           type: 'image/png',
         },
         {
-          src: 'pwa-512x512.png',
+          src: 'icon-512x512.png',
           sizes: '512x512',
           type: 'image/png',
         },
         {
-          src: 'pwa-512x512.png',
+          src: 'icon-512x512.png',
           sizes: '512x512',
           type: 'image/png',
           purpose: 'any maskable',
