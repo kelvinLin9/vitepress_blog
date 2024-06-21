@@ -7,9 +7,11 @@ const needRefresh = ref(false)
 let updateServiceWorker: (() => Promise<void>) | undefined
 
 function onOfflineReady() {
+  console.log("Offline ready triggered.");
   offlineReady.value = true
 }
 function onNeedRefresh() {
+  console.log("Need refresh triggered.");
   needRefresh.value = true
 }
 async function close() {
@@ -35,6 +37,8 @@ onBeforeMount(async () => {
 </script>
 
 <template>
+  <div>Offline Ready: {{ offlineReady }}</div>
+  <div>Need Refresh: {{ needRefresh }}</div>
   <template v-if="offlineReady || needRefresh">
     <div
       class="pwa-toast"

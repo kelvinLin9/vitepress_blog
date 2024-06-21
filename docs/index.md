@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Kelvin"
-  text: "A VitePress Site"
+  text: "A VitePress Site...."
   tagline: My great project tagline
   actions:
     - theme: brand
@@ -23,3 +23,4 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
+# 12345
