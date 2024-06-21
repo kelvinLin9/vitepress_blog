@@ -16,7 +16,7 @@ export default withPwa(defineConfig({
   description: 'Vite Plugin PWA Integration example for VitePress',
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
-    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', href: 'favicon.ico' }],
     ['link', { rel: 'mask-icon', href: '/favicon.svg', color: '#ffffff' }],
     ['meta', {
       name: 'keywords',
