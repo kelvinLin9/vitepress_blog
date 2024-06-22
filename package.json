@@ -19,5 +19,6 @@
     "vitepress": "^1.2.3"
   },
   "devDependencies": {
+    "vite-plugin-pwa": "^0.20.0"
   }
 }

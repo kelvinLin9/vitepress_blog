@@ -3,9 +3,13 @@ import { Toast } from "../mixins/sweetAlert"
 import conf from "../config/config";
 // device detector
 import DeviceDetector from 'device-detector-js';
-const deviceDetector = new DeviceDetector();
-const userAgent = navigator.userAgent;
-const device = deviceDetector.parse(userAgent);
+if (typeof window !== 'undefined') {
+  const deviceDetector = new DeviceDetector();
+  const userAgent = navigator.userAgent;
+  const device = deviceDetector.parse(userAgent);
+
+  console.log(device);
+}
 
 const deviceInfo = async() => {
   let result = {};
