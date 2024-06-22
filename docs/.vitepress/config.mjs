@@ -22,7 +22,6 @@ export default withPwa(defineConfig({
   },
   base,
   assetsDir: './assets/ja', // pwa prompt
-  publicDir: '../public',
   lang: 'en-US',
   title: 'VitePress',
   description: 'Vite Plugin PWA Integration example for VitePress',
