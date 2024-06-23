@@ -1,15 +1,14 @@
 import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
-import { fileURLToPath, URL } from 'node:url'
 
 const base = '/vitepress_blog/' // '/vite-plugin-pwa/'
 
 if (typeof globalThis.localStorage === 'undefined') {
   globalThis.localStorage = {
-    getItem: (key) => null, // 返回 null 表示未找到該鍵值
-    setItem: (key, value) => {}, // 空函數，因為在 SSR 中我們不實際存儲數據
-    removeItem: (key) => {}, // 提供 removeItem 的基礎實現
-    clear: () => {} // 提供 clear 方法的基礎實現
+    getItem: (key) => null, 
+    setItem: (key, value) => {}, 
+    removeItem: (key) => {}, 
+    clear: () => {} 
   };
 }
 
