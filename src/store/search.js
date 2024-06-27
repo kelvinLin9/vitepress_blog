@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
-import { usejStoryDataStore } from '../store/jStoryData';
-import { useWebChatStore } from "../store/webchat"
-import { useNearbyStore } from "../store/nearby";
-import { usePlayerStore } from "../store/player"
+import { usejStoryDataStore } from './jStoryData';
+import { useWebChatStore } from "./webchat"
+import { useNearbyStore } from "./nearby";
+import { usePlayerStore } from "./player"
 import { Toast } from '../mixins/sweetAlert';
 import utils from "../plugins/utils";
 import axios from "axios";

@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) navigator.serviceWorker.register('/vitepress_blog/dev-sw.js?dev-sw', { scope: '/vitepress_blog/', type: 'classic' })
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/jdocs/dev-sw.js?dev-sw', { scope: '/jdocs/', type: 'classic' })

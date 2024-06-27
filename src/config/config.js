@@ -21,7 +21,7 @@ switch (false) {
 }
 
 const config = {
-  "version": "0.5.4",
+  "version": "0.0.1",
   "baseURL": siteConfig.BASE_URL || "/",
   "default_story": "jujue",
   "default_image": "https://picsum.photos/900/1600?image=",
@@ -29,13 +29,13 @@ const config = {
   "wsurl": "https://ws1.ypcloud.com",
   "OBJ_STORE": ">svc/OBJSTORE",
   "LOGIN_URL": siteConfig.VUE_LOGIN_URL || "https://account.ypcloud.com/auth/verify/?ReturnURL=",
-  "LOGOUT_URL": siteConfig.VUE_LOGOUT_URL || "https://account.ypcloud.com/auth/logout/?ReturnURL=https://git.page/jstory",
+  "LOGOUT_URL": siteConfig.VUE_LOGOUT_URL || "https://account.ypcloud.com/auth/logout/?ReturnURL=https://web.git.page/jdocs",
 
-  "EI_NAME_PREFIX": "wbJSTORY",
+  "EI_NAME_PREFIX": "wbjDocs-",
   "EI_TYPE": ".web",
   "ENABLE_TRACK": siteConfig.TRACK.ENABLE || 1,
-  "TRACK_PAGE": "jstory",
-  "TRACK_SOURCE": "jstory",
+  "TRACK_PAGE": "docs",
+  "TRACK_SOURCE": "docs",
   
   "TICKET_EXPIRY_DURATION": 3000,
 

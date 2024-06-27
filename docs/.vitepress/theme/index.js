@@ -11,11 +11,20 @@ pinia.use(piniaPluginPersistedState)
 import RegisterSW from './components/RegisterSW.vue'
 import ReloadPrompt from './components/ReloadPrompt.vue'
 
+//
+import Theme from 'vitepress/theme'
+import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client' 
+import '@shikijs/vitepress-twoslash/style.css' 
+// import type { EnhanceAppContext } from 'vitepress'
+
+// abcjs
+import AbcNotation from './components/AbcNotation.vue'
 
 
 /** @type {import('vitepress').Theme} */
 export default {
-  extends: DefaultTheme,
+  extends: DefaultTheme, 
+  // extends: Theme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // 'layout-bottom': () => h(RegisterSW)
@@ -24,5 +33,7 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.use(pinia)
+    app.use(TwoslashFloatingVue)
+    app.component('AbcNotation', AbcNotation)
   }
 }

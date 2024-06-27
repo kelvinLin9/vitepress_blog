@@ -2,8 +2,8 @@ import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { open, reg, set, send, call, pub, sub, subList, getxs, setxs } from '../modules/webmms'
 import { getRegProp, saveRegProp } from '../modules/webmms/regmc.js'
-import { useNearbyStore } from './nearby'
-import { useUploadStore } from './upload'
+import { useNearbyStore } from './nearby.js'
+import { useUploadStore } from './upload.js'
 import { Toast } from "../mixins/sweetAlert"
 import utils from "../plugins/utils";
 // import { withAsyncErrorHandling, showErrorToast } from "../plugins/utils";
@@ -82,6 +82,7 @@ export const useWebChatStore = defineStore('webChatStore', () =>{
             if (res.state === 'connected') {
               wsState.value = 'connected';
               wsOpened.value = true;
+              console.log('webChat: wsOpen connected', regInfo.value)
               let ret = await mcReg(regInfo.value);
               return ret;
             } else if (res.state === 'disconnected'){
@@ -243,20 +244,18 @@ export const useWebChatStore = defineStore('webChatStore', () =>{
   
 
 
-
-
-
-
     // custom
     const startMMS = async() => {
       setAppState('open')
       const res = await wsOpen(conf.wsurl)
       console.log('app open webmms result=%o', res)
-      regInfo.value = res.result
+      regInfo.value = JSON.parse(JSON.stringify(res.result))
+      console.log('app open webmms regInfo=%o', regInfo.value.EiName)
       if (res.ErrCode === 0) {
         if (regInfo.value.EiName === '') {
+          console.log('app open webmms regInfo=%o', regInfo.value.EiName)
           console.log('app open webmms no EiName')
-          regInfo.value.EiName = 'wbJSTORY-' + Math.random().toString(36).substring(2, 8)
+          regInfo.value.EiName = conf.EI_NAME_PREFIX + Math.random().toString(36).substring(2, 8)
         } 
         const res = await mcSet(regInfo.value)
         console.log('mcSet result=%o', res)

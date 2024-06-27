@@ -1,5 +1,5 @@
 {
-  "BASE_URL": "/",
+  "BASE_URL": "/jdocs",
   "APP_URL": "https://jstory.ypcloud.com",
   "BASE_IMAGE_URL": "https://jstory.ypcloud.com",
   "VUE_LOGIN_URL": "https://account.ypcloud.com/auth/verify/?ReturnURL=",
