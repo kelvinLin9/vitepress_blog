@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
 import { resolve } from 'path'
 import { fileURLToPath, URL } from 'node:url'
+import AutoNav from "vite-plugin-vitepress-auto-nav";
 
 // markdown-it plugins
 import markdownItAnchor from 'markdown-it-anchor'
@@ -26,86 +27,29 @@ if (typeof globalThis.localStorage === 'undefined') {
 }
 
 
-import fg from 'fast-glob'
-import matter from 'gray-matter'
+// import fg from 'fast-glob';
 
-const files = fg.sync(['guide/**/*.md'], { cwd: 'docs' }).map(file => {
-  // const { data } = matter.read('docs/' + file)
-  return file
-})
+// const files = fg.sync(['guide/**/*.md'], { cwd: 'docs' });
 
-console.log('files', files)
+// // 處理文件路徑，生成導航結構
+// const navigation = files.reduce((nav, file) => {
+//   // 獲取每個文件的路徑分段
+//   const parts = file.split('/');
+//   // 假設‘guide’是第一個元素，所以我們關心的是第二個元素作為分組依據
+//   const section = parts[1];
 
-function buildNav(files) {
-  const nav = [];
+//   // 如果當前section尚未在導航中，則初始化
+//   if (!nav[section]) {
+//     nav[section] = [];
+//   }
 
-  // Helper function to find or create nav entry
-  const findOrCreateEntry = (pathParts) => {
-      let currentLevel = nav;
-      pathParts.forEach((part, index) => {
-          let existing = currentLevel.find(item => item.text === part);
-          if (!existing) {
-              existing = {
-                  text: part,
-                  items: []
-              };
-              currentLevel.push(existing);
-          }
-          // Only navigate into 'items' if not at the last part or if this part is not a file
-          if (index !== pathParts.length - 1) {
-              currentLevel = existing.items;
-          } else {
-              // Set link for last part if it's a file or if no sub-items
-              existing.link = `/guide/${pathParts.join('/')}`;
-              if (existing.items.length === 0) delete existing.items;
-          }
-      });
-      return currentLevel;
-  };
+//   // 添加到對應的section
+//   nav[section].push({ text: parts.pop().replace('.md', ''), link: '/' + file });
 
-  files.forEach(file => {
-      const path = file.replace('.md', '');
-      const parts = path.split('/');
-      const fileName = parts.pop();
+//   return nav;
+// }, {});
 
-      // Check if the file is an index file
-      if (fileName === 'index') {
-          findOrCreateEntry(parts).link = `/guide/${parts.join('/')}`;
-      } else {
-          // Normal file or sub-directory index
-          findOrCreateEntry([...parts, fileName]);
-      }
-  });
-
-  // Remove unnecessary 'items' if it's just a single link without actual sub-items
-  const cleanupNav = (items) => {
-      items.forEach(item => {
-          if (item.items && !item.items.length) {
-              delete item.items;
-          } else if (item.items) {
-              cleanupNav(item.items);
-          }
-      });
-  };
-
-  cleanupNav(nav);
-
-  return nav;
-}
-
-
-
-const navItems = generateNav(files);
-console.log(navItems);
-console.log(JSON.stringify(navItems, null, 2)); // 使用缩进的 JSON 字符串表示
-
-
-
-
-
-
-
-
+// console.log(navigation);
 
 
 
@@ -119,20 +63,11 @@ export default withPwa(defineConfig({
     define: {
       __DATE__: `'${new Date().toISOString()}'`,
     },
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
-      },
-      extensions: [
-        '.js',
-        '.json',
-        '.jsx',
-        '.mjs',
-        '.ts',
-        '.tsx',
-        '.vue',
-      ],
-    },
+    plugins: [
+      AutoNav({
+        // 自定义配置
+      }),
+    ],
   },
   base,
   assetsDir: './assets/ja', // pwa prompt
@@ -155,26 +90,26 @@ export default withPwa(defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2024',
     },
-    nav: [
-      { text: 'Worker', link: '/guide/Worker' },
-      { text: 'Agents', link: '/guide/Agents' },
-      {
-        text: 'Jujue',
-        items: [
-          { text: 'Content', link: '/guide/Jujue/Content/1' },
-          { text: 'Media', link: '/guide/Jujue/Media/1' },
-          { text: 'WebSite', link: '/guide/Jujue/Website/1' },
-        ],
-      },
-      {
-        text: 'Lab',
-        items: [
-          { text: 'Plugin', link: '/guide/Lab/plugin' },
-          { text: 'Settings', link: '/guide/Lab/settings' },
-          { text: 'Import', link: '/guide/Lab/import' },
-        ]
-      }
-    ],
+    // nav: [
+    //   { text: 'Worker', link: '/guide/Worker' },
+    //   { text: 'Agents', link: '/guide/Agents' },
+    //   {
+    //     text: 'Jujue',
+    //     items: [
+    //       { text: 'Content', link: '/guide/Jujue/Content/1' },
+    //       { text: 'Media', link: '/guide/Jujue/Media/1' },
+    //       { text: 'WebSite', link: '/guide/Jujue/Website/1' },
+    //     ],
+    //   },
+    //   {
+    //     text: 'Lab',
+    //     items: [
+    //       { text: 'Plugin', link: '/guide/Lab/plugin' },
+    //       { text: 'Settings', link: '/guide/Lab/settings' },
+    //       { text: 'Import', link: '/guide/Lab/import' },
+    //     ]
+    //   }
+    // ],
     sidebar: {
       '/guide/': [
         {
