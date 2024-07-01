@@ -3,36 +3,39 @@ import { Toast } from "../mixins/sweetAlert"
 import conf from "../config/config";
 // device detector
 import DeviceDetector from 'device-detector-js';
-if (typeof window !== 'undefined') {
-  const deviceDetector = new DeviceDetector();
-  const userAgent = navigator.userAgent;
-  const device = deviceDetector.parse(userAgent);
 
-  console.log(device);
-}
 
 const deviceInfo = async() => {
-  let result = {};
-  result.model = device.device.model;
-  result.brand = device.device.brand;
-  result.type = device.device.type;
-  result.os_name = device.os.name;
-  result.os_platform = device.os.platform;
-  result.os_version = device.os.version;
-  result.browser_name = device.client.name;
-  result.browser_version = device.client.version;
-  result.browser_engine = device.client.engine;
-  result.browser_engine_version = device.client.engineVersion;
-  // result.isMobile = device.device.isMobile;
-  // result.isTablet = device.device.isTablet;
-  // result.isDesktop = device.device.isDesktop;
-
-  let getIP = await axios.get('https://jsonip.com/');
-  if(getIP.status == 200)
-    result.IP = getIP.data.ip;
-
-  return result;
+  console.log(typeof window)
+  if (typeof window !== 'undefined') {
+    const deviceDetector = new DeviceDetector();
+    const userAgent = navigator.userAgent;
+    const device = deviceDetector.parse(userAgent);
+    console.log(device);
+    const result = {};
+    result.model = device.device.model;
+    result.brand = device.device.brand;
+    result.type = device.device.type;
+    result.os_name = device.os.name;
+    result.os_platform = device.os.platform;
+    result.os_version = device.os.version;
+    result.browser_name = device.client.name;
+    result.browser_version = device.client.version;
+    result.browser_engine = device.client.engine;
+    result.browser_engine_version = device.client.engineVersion;
+    // result.isMobile = device.device.isMobile;
+    // result.isTablet = device.device.isTablet;
+    // result.isDesktop = device.device.isDesktop;
+  
+    console.log(result)
+    let getIP = await axios.get('https://jsonip.com/');
+    if(getIP.status == 200)
+      result.IP = getIP.data.ip;
+    return result;
+  }
 }
+
+
 const makeId = (length) => {
   let result = '';
   let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

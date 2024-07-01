@@ -3,11 +3,10 @@ import conf from "../config/config";
 import utils from "../plugins/utils";
 import { useAuthStore } from "./auth";
 import { useWebChatStore } from "./webchat";
-import { usejStoryDataStore } from "./jStoryData";
 import { computed, watch } from "vue";
 
-const formatKeyName = (appId, bid) => `sys-log-${appId.replace(/\./g, '')}-${bid.replace(/\./g, '')}`;
 
+const formatKeyName = (appId, bid) => `sys-log-${appId.replace(/\./g, '')}-${bid.replace(/\./g, '')}`;
 
 const shouldTrack = (appId, bid) => {
   console.log('shouldTrack', appId, bid);
@@ -28,18 +27,17 @@ const buildPayload = (appinfo, bid, source, device, isAuthenticated, uid) => ({
   },
 });
 
-export const useTrack = defineStore("track", () => {
+export const useTrackStore = defineStore("track", () => {
   const authStore = useAuthStore();
   const webmmsStore = useWebChatStore();
-  const jStoryDataStore = usejStoryDataStore();
 
   const pageParams = computed(() => ({
     bid: webmmsStore.regInfo?.DDN || '',
     source: conf.TRACK_SOURCE,
     appinfo: {
-      product: `page-${conf.TRACK_SOURCE}`,
-      app_id: `${jStoryDataStore.storyName}.story`, // 最一開始會拿不到值
-      brick: `${jStoryDataStore.brickName}.brick`,
+      product: `web-${conf.TRACK_SOURCE}`,
+      app_id: '',
+      docs: '',
     },
   }));
 
@@ -47,7 +45,6 @@ export const useTrack = defineStore("track", () => {
     if (!conf.ENABLE_TRACK) return;
 
     const { appinfo, bid, source } = pageParams.value;
-    if (!jStoryDataStore.storyName) return; // 保護沒有值的情況
     if (!shouldTrack(appinfo.app_id, bid)) return;
 
     try {
@@ -73,12 +70,6 @@ export const useTrack = defineStore("track", () => {
       console.log(error);
     }
   };
-
-  // 決定 track 時間點
-  watch(() => jStoryDataStore.brickName, () => {
-    console.log('brickName change')
-    track();
-  }, { deep: true});
 
   return { 
     track 

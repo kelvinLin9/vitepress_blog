@@ -1,21 +1,23 @@
 <template>
-  <button 
-    v-if="!Uid"
-    @click="onLogin()"
-    type="button" 
-    class="border rounded-lg px-2 me-2 bg-primary" 
-  >
-    登入
-  </button>
-  <button
-    v-else
-    @click="onLogout()"
-    type="button" 
-    class="border rounded-lg px-2 me-2" 
-  >
-    登出
-  </button>
-  {{ Uid }}
+  <div v-if="Uid" class="text-end">
+    HI: {{ Uid }}
+    <button
+      @click="onLogout()"
+      type="button" 
+      class="border rounded-lg px-2 text-3xl font-bold underline" 
+    >
+      登出
+    </button>
+  </div>
+  <div v-if="!Uid" class="text-end">
+    <button 
+      @click="onLogin()"
+      type="button" 
+      class="border rounded-lg px-2 bg-primary" 
+    >
+      登入
+    </button>
+  </div>
 </template>
 
 <script setup>
@@ -49,6 +51,7 @@ button {
   cursor: pointer;
   border: none;
   background-color: transparent;
+  /* display: block; */
 }
 button:hover {
   opacity: 0.8;
@@ -96,5 +99,12 @@ button:hover {
 
 .fs-16 {
   font-size: 16px;
+}
+.text-end {
+  text-align: end;
+}
+.bg-primary {
+  background-color: #1976D2; /* Blue */
+  color: white;
 }
 </style>

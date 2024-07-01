@@ -1,31 +1,28 @@
-import configLab from './lab-jstory-site.json';
-import configApps from './apps-jstory-site.json';
+import configLab from './lab-jdocs-site.json';
+import configApps from './apps-jdocs-site.json';
 
 // const viteSiteConfig = import.meta.env.VITE_SITE_CONFIG
 
 let siteConfig = {};
 switch (false) {
-  case 'lab-jstory-site.json':
-    // console.log('lab-jstory-site', configLab);
+  case 'lab-jdocs-site.json':
+    // console.log('lab-jdocs-site', configLab);
     siteConfig = configLab;
     break;
-  case 'apps-jstory-site.json':
-    // console.log('apps-jstory-site', configApps);
+  case 'apps-jdocs-site.json':
+    // console.log('apps-jdocs-site', configApps);
     siteConfig = configApps;
     break;
   default:
     siteConfig = configApps;
     // siteConfig = configApps;
-    // console.log('apps-jstory-site', configApps);
+    // console.log('apps-jdocs-site', configApps);
     break;
 }
 
 const config = {
   "version": "0.0.1",
   "baseURL": siteConfig.BASE_URL || "/",
-  "default_story": "jujue",
-  "default_image": "https://picsum.photos/900/1600?image=",
-  "DEFAULT_AVATAR": "https://i.pravatar.cc/150?img=",
   "wsurl": "https://ws1.ypcloud.com",
   "OBJ_STORE": ">svc/OBJSTORE",
   "LOGIN_URL": siteConfig.VUE_LOGIN_URL || "https://account.ypcloud.com/auth/verify/?ReturnURL=",
@@ -34,8 +31,8 @@ const config = {
   "EI_NAME_PREFIX": "wbjDocs-",
   "EI_TYPE": ".web",
   "ENABLE_TRACK": siteConfig.TRACK.ENABLE || 1,
-  "TRACK_PAGE": "docs",
-  "TRACK_SOURCE": "docs",
+  "TRACK_PAGE": "jdocs",
+  "TRACK_SOURCE": "jdocs",
   
   "TICKET_EXPIRY_DURATION": 3000,
 

@@ -1,7 +1,8 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
-import './style.css'
+// import './style.css'
+import './styles/tailwind.css'
 
 import { createPinia } from "pinia"
 import piniaPluginPersistedState from "pinia-plugin-persistedstate"

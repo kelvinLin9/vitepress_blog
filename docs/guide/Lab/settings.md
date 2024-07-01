@@ -5,5 +5,5 @@
   import Login from "../../../src/components/auth/Login.vue"
 </script>
 
-<Settings/>
 <Login/>
+<Settings/>

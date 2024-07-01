@@ -1,11 +1,11 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-layout: 
+layout: home
 
 hero:
   name: "jDocs"
-  text: ""
-  tagline: Document Management System
+  text: "AI Docs Center"
+  tagline: 
   # actions:
   #   - theme: brand
   #     text: Setting
@@ -15,26 +15,27 @@ hero:
   #     target: "_self"
   #     link: "https://account.ypcloud.com/auth/verify/?ReturnURL=http://localhost:5173/jdocs/callback"
 features:
-  - title: Feature A
+  - title: AI Docs
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - title: Group Docs
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - title: My Docs
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
 <script setup>
-import Login from "../src/components/auth/Login.vue"
 import { ref, onMounted, watch } from 'vue';
-import axios from 'axios';
 import { storeToRefs } from "pinia"
 import { useWebChatStore } from "../src/store/webchat"
+import { useTrackStore } from "../src/store/track"
 
 const webChatStore = useWebChatStore()
 const { appState } = storeToRefs(webChatStore)
 const appReady = webChatStore.appReady
-const getSubList = webChatStore.getSubList
 const startMMS = webChatStore.startMMS
+
+const trackStore = useTrackStore()
+const track = trackStore.track
 
 onMounted(async () => {
   startMMS()
@@ -44,8 +45,10 @@ watch(() => appState.value, async(n) => {
   console.log('appState', n)
   if (appState.value === 'reg ok') {
     await appReady()
-    await getSubList()
-    // track()
+    if (typeof window !== 'undefined') {
+      console.log(typeof window)
+      track()
+    }
     // console.log(regInfo.value.EiUMMA)
     // if (regInfo.value.EiUMMA) {
     //   whoIs()
@@ -58,14 +61,17 @@ watch(() => appState.value, async(n) => {
   }
 })
 </script>
-<Login/>
-## hi
+<!-- ## mms test
 
-{{ appState }}
-<!-- {{ Uid }} -->
+{{ appState }} -->
 
-
-<!--.vitepress/theme/MyLayout.vue-->
-
+  <div class="text-3xl font-bold underline">
+    Hello world!!
+  </div>
+  <div class="flex">
+  
+  <h1>123</h1>
+  <h1>123</h1>
+  </div> 
 
 
