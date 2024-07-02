@@ -4,7 +4,7 @@
     <button
       @click="onLogout()"
       type="button" 
-      class="border rounded-lg px-2 text-3xl font-bold underline" 
+      class="border rounded-lg px-2" 
     >
       登出
     </button>

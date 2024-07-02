@@ -46,6 +46,7 @@ const config = {
   "GN_GN": siteConfig.GN_GN,
   "S3": siteConfig.S3,
   "MINE": siteConfig.MINE,
+  "SYS": siteConfig.SYS,
 };
 export default config;
 

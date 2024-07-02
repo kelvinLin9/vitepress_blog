@@ -17,37 +17,11 @@ export const useSettingStore =  defineStore("settingStore", () => {
   const xyRatio = ref(0)
   const lastScrollPosition = ref(0)
   const scrolledUp = ref(false) 
-  const localPlayerSettings = ref({
-      "autoPlay": true,
+  const localjDocsSettings = ref({
       "darkMode": false,
-      "footerMode": "none",
-      "initView": "home",
-      "initStory": "default",
-      "customStory":"",
-      "short": {
-        "loopPlayback": 0,
-        "muted":false,
-      },
-      "story": {
-        "loopPlaybackAudio": 0,
-        "loopPlaybackAlbum": 0,
-        "muted":false,
-      },
-      "stream": {
-        "muted":false,
-      },
-      "prog": {
-        "loopPlayback":"repeatAll",
-        "loopPlaybackPin":"repeatAll",
-        "muted":false,
-      },
-      "liveview": {
-        "loopPlayback": 0,
-        "muted":false,
-      },
   })
  
-  const settingsTemp = JSON.parse(JSON.stringify(localPlayerSettings.value))
+  const settingsTemp = JSON.parse(JSON.stringify(localjDocsSettings.value))
 
 
   
@@ -87,13 +61,13 @@ export const useSettingStore =  defineStore("settingStore", () => {
         console.log(!localVersion, conf.version)
         if (!localVersion || localVersion.version !== conf.version) {
           console.log('Reset local player settings')
-          // resetLocalPlayerSettings()
-          // localStorage.setItem('jStorySettings', JSON.stringify(localPlayerSettings.value));
+          // resetLocaljDocsSettings()
+          // localStorage.setItem('jStorySettings', JSON.stringify(localjDocsSettings.value));
           localStorage.setItem('version', JSON.stringify({ version: conf.version }));
         } else {
           const settings = localStorage.getItem('jStorySettings');
           if(settings !== null) {
-            localPlayerSettings.value = JSON.parse(settings);
+            localjDocsSettings.value = JSON.parse(settings);
           }
         }
       } catch (error) {
@@ -101,8 +75,8 @@ export const useSettingStore =  defineStore("settingStore", () => {
       }
     }
 
-    const resetLocalPlayerSettings = () => {
-      localPlayerSettings.value = settingsTemp
+    const resetLocaljDocsSettings = () => {
+      localjDocsSettings.value = settingsTemp
     }
     
     return {
@@ -110,14 +84,14 @@ export const useSettingStore =  defineStore("settingStore", () => {
       xyRatio,
       lastScrollPosition,
       scrolledUp,
-      localPlayerSettings,
+      localjDocsSettings,
 
       onResize,
       handleScroll,
       hiddenScrollbar,
       removeHiddenScrollbar,
       getSettings,
-      resetLocalPlayerSettings,
+      resetLocaljDocsSettings,
     }
   },
 );

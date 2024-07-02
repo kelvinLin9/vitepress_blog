@@ -39,7 +39,7 @@
       <!-- <button 
         type="button" 
         class="border rounded-lg px-2 me-2" 
-        @click="resetLocalPlayerSettings()"
+        @click="resetocaljDocsSettings()"
       >
         預設
       </button>
@@ -57,7 +57,7 @@
     </div>
   </VForm>
 
-
+{{ localjDocsSettings }}
 </template>
 
 <script setup>
@@ -78,8 +78,8 @@ const appReady = webChatStore.appReady
 const startMMS = webChatStore.startMMS
 
 const settingStore = useSettingStore()
-const { localPlayerSettings } = storeToRefs(settingStore)
-const resetLocalPlayerSettings = settingStore.resetLocalPlayerSettings
+const { localjDocsSettings } = storeToRefs(settingStore)
+const resetocaljDocsSettings = settingStore.resetocaljDocsSettings
 
 const authStore = useAuthStore()
 const { Uid } = storeToRefs(authStore)
@@ -96,7 +96,7 @@ import zh_TW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 
 const saveLocalSettings = async(e) => {
   console.log(e)
-  localStorage.setItem('jStorySettings', JSON.stringify(localPlayerSettings.value));
+  localStorage.setItem('jStorySettings', JSON.stringify(localjDocsSettings.value));
   if (oldEiName.value !== e.EiName || oldEiTag.value !== e.EiTag) {
     oldEiName.value = e.EiName
     oldEiTag.value = e.EiTag
@@ -117,7 +117,7 @@ const saveLocalSettings = async(e) => {
       assets.value[0].description,
       assets.value[0].apptype,
       assets.value[0].category,
-      localPlayerSettings.value
+      localjDocsSettings.value
     )
   }
   Toast.fire({

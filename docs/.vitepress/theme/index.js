@@ -15,11 +15,15 @@ import ReloadPrompt from './components/ReloadPrompt.vue'
 //
 import Theme from 'vitepress/theme'
 import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client' 
-import '@shikijs/vitepress-twoslash/style.css' 
+// import '@shikijs/vitepress-twoslash/style.css' 
 // import type { EnhanceAppContext } from 'vitepress'
 
 // abcjs
 import AbcNotation from './components/AbcNotation.vue'
+
+// layout
+import Init from './components/Init.vue'
+import Navbar from './components/Navbar.vue'
 
 
 /** @type {import('vitepress').Theme} */
@@ -29,7 +33,9 @@ export default {
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // 'layout-bottom': () => h(RegisterSW)
-      'layout-bottom': () => h(ReloadPrompt)
+      'layout-bottom': () => h(ReloadPrompt),
+      'layout-top': () => h(Init),
+      'layout-header': () => h(Navbar),
     })
   },
   enhanceApp({ app, router, siteData }) {

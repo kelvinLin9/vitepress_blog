@@ -6,6 +6,13 @@ export const useAuthStore = defineStore("auth", () => {
     const user = ref(null);
     const returnUrl = ref(null);
 
+    const navLogin = computed(() => {
+      if (Uid.value) {
+        return { text: 'Logout' , link: logout }
+      } else {
+        return { text: 'Login' , link: '/login' }
+      }
+    });
     function signup(authData) {
       setUser({
         UToken: authData.UToken,
@@ -60,6 +67,7 @@ export const useAuthStore = defineStore("auth", () => {
       returnUrl,
       $reset,
       isAuthenticated,
+      navLogin,
     };
   },
   { persist: true }

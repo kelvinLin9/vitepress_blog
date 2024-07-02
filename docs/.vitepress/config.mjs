@@ -6,12 +6,18 @@ import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
 
 // markdown-it plugins
 import markdownItAnchor from 'markdown-it-anchor'
-// import markdownItMermaid from "@wekanteam/markdown-it-mermaid";
-import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+// import markdownItMermaid from "@wekanteam/markdown-it-mermaid"
+// import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import markdownItAbc from '../../src/mixins/abc.js'
 
 import conf from '../../src/config/config.js'
 const base = '/jdocs/' // '/vite-plugin-pwa/'
+
+// login
+import { defineStore } from 'pinia'
+import { useAuthStore } from '../../src/store/auth.js'
+// const authStore = useAuthStore()
+// console.log('asdf', authStore.Uid)
 
 // localStorage
 if (typeof globalThis.localStorage === 'undefined') {
@@ -22,6 +28,8 @@ if (typeof globalThis.localStorage === 'undefined') {
     clear: () => {} 
   };
 }
+
+console.log(globalThis.localStorage)
 
 export default withPwa(defineConfig({
   vite: {
@@ -48,10 +56,10 @@ export default withPwa(defineConfig({
     ['link', { rel: 'mask-icon', href: 'favicon.ico', color: '#ffffff' }],
     ['meta', {
       name: 'keywords',
-      content: 'PWA, VitePress, workbox, Vite, vite-plugin',
+      content: 'PWA, VitePress, jujue, jDocs',
     }],
     ['link', { rel: 'apple-touch-icon', href: './icons/icon-192x192.png', sizes: '192x192' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css' }],
+    // ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css' }],
   ],
   themeConfig: {
     logo: { src: './icons/icon-192x192.png', width: 24, height: 24 },
@@ -60,15 +68,31 @@ export default withPwa(defineConfig({
       copyright: '',
     },
     nav: [
-      { text: 'ydrive', link: '/guide' },
       {
         text: 'Lab',
         items: [
-          { text: 'Plugin', link: '/guide/Lab/plugin' },
-          { text: 'Settings', link: '/guide/Lab/settings' },
-          { text: 'Import', link: '/guide/Lab/import' },
+          { text: 'Plugin', link: '/guide/lab/plugin' },
+          { text: 'Settings', link: '/guide/lab/settings' },
         ]
-      }
+      },
+      { text: 'ydrive', link: '/guide' },
+      {
+        text: 'Mine',
+        items: [
+          { text: '', 
+            items: [
+              { text: 'My Profile', link: '/guide/mine/profile' },
+              { text: 'My Wallet', link: '/guide/mine/wallet' },
+              { text: 'My Usage', link: '/guide/mine/usage' },
+              { text: 'My Runtime', link: '/guide/mine/runtime' },
+              { text: 'My Setting', link: '/guide/mine/setting' },
+              { text: 'FAQ', link: '/guide/mine/faq' },
+            ]
+          },
+          { text: base , link: 'http://localhost:5173/jdocs/' },
+          
+        ]
+      },
     ],
     search : {
       provider: 'local'

@@ -82,5 +82,11 @@
       "MINE_USER": "mine://user",
       "MINE_ASSETS": "mine://assets"
     }
+  },
+  "SYS": {
+    "MMA": "sys/",
+    "TOPIC": {
+      "IN_LOCAL" : "in://local"
+    }
   }
 }
