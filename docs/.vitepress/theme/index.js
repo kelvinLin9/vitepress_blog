@@ -35,7 +35,7 @@ export default {
       // 'layout-bottom': () => h(RegisterSW)
       'layout-bottom': () => h(ReloadPrompt),
       'layout-top': () => h(Init),
-      'layout-header': () => h(Navbar),
+      'layout-top': () => h(Navbar),
     })
   },
   enhanceApp({ app, router, siteData }) {
