@@ -3,6 +3,7 @@ import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 // import './style.css'
 import './styles/tailwind.css'
+import './styles/vars.css'
 
 import { createPinia } from "pinia"
 import piniaPluginPersistedState from "pinia-plugin-persistedstate"
@@ -22,20 +23,23 @@ import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import AbcNotation from './components/AbcNotation.vue'
 
 // layout
+import Layout from './Layout.vue'
 import Init from './components/Init.vue'
-import Navbar from './components/Navbar.vue'
+import VPNav from './components/VPNav.vue'
+import Login from '../../../src/components/auth/Login.vue'
+import HeaderLogin from '../../../src/components/auth/HeaderLogin.vue'
 
 
 /** @type {import('vitepress').Theme} */
 export default {
+  // Layout,
   extends: DefaultTheme, 
-  // extends: Theme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // 'layout-bottom': () => h(RegisterSW)
       'layout-bottom': () => h(ReloadPrompt),
       'layout-top': () => h(Init),
-      'layout-top': () => h(Navbar),
+      'nav-bar-content-after': () => h(HeaderLogin),
     })
   },
   enhanceApp({ app, router, siteData }) {

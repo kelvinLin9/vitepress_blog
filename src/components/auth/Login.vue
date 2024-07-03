@@ -1,4 +1,5 @@
 <template>
+  <span class="mdi mdi-account"></span>
   <div v-if="Uid" class="text-end">
     HI: {{ Uid }}
     <button

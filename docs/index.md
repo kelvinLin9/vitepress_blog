@@ -1,6 +1,6 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-layout: doc
+layout: home
 
 hero:
   name: "jDocs"
@@ -23,10 +23,16 @@ hero:
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
-  <div class="text-3xl font-bold underline">
+  <!-- <div class="text-3xl font-bold underline">
     Hello world!!
-  </div>
+  </div> -->
 
-<!-- <script setup>
+<script setup>
+  import VPNavBarTitle from 'vitepress/dist/client/theme-default/components/VPNavBar.vue'
+  // import VPNavScreen from 'vitepress/dist/client/theme-default/components/VPNavScreen.vue'
 
-<script> -->
+</script>
+
+
+<!-- <VPNavBarTitle/> -->
+<!-- <VPNavScreen/> -->

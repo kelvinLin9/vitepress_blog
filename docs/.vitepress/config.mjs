@@ -59,7 +59,7 @@ export default withPwa(defineConfig({
       content: 'PWA, VitePress, jujue, jDocs',
     }],
     ['link', { rel: 'apple-touch-icon', href: './icons/icon-192x192.png', sizes: '192x192' }],
-    // ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css' }],
   ],
   themeConfig: {
     logo: { src: './icons/icon-192x192.png', width: 24, height: 24 },
@@ -89,7 +89,7 @@ export default withPwa(defineConfig({
               { text: 'FAQ', link: '/guide/mine/faq' },
             ]
           },
-          { text: base , link: 'http://localhost:5173/jdocs/' },
+          { text: '登入' , link: 'http://localhost:5173/jdocs/' },
           
         ]
       },
