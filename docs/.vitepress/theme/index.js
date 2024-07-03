@@ -27,7 +27,7 @@ import Layout from './Layout.vue'
 import Init from './components/Init.vue'
 import VPNav from './components/VPNav.vue'
 import Login from '../../../src/components/auth/Login.vue'
-import HeaderLogin from '../../../src/components/auth/HeaderLogin.vue'
+import HeaderLogin from './components/HeaderLogin.vue'
 
 
 /** @type {import('vitepress').Theme} */

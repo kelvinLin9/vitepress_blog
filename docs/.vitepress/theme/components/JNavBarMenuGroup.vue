@@ -3,7 +3,7 @@ import type { DefaultTheme } from 'vitepress/theme'
 import { computed } from 'vue'
 import { useData } from '../composables/data'
 import { isActive } from '../shared'
-import VPFlyout from './VPFlyout.vue'
+import JFlyout from './JFlyout.vue'
 
 const props = defineProps<{
   item: DefaultTheme.NavItemWithChildren
@@ -27,7 +27,7 @@ const childrenActive = computed(() => isChildActive(props.item))
 </script>
 
 <template>
-  <VPFlyout
+  <JFlyout
     :class="{
       VPNavBarMenuGroup: true,
       active: isActive(
@@ -37,6 +37,7 @@ const childrenActive = computed(() => isChildActive(props.item))
       ) || childrenActive
     }"
     :button="item.text"
+    :icon="item.icon"
     :items="item.items"
   />
 </template>

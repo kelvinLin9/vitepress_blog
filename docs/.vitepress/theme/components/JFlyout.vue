@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useFlyout } from '../composables/flyout'
-import VPMenu from './VPMenu.vue'
+import JMenu from './JMenu.vue'
 
 defineProps<{
   icon?: string
@@ -36,17 +36,19 @@ function onBlur() {
       @click="open = !open"
     >
       <span v-if="button || icon" class="text">
-        <span v-if="icon" :class="[icon, 'option-icon']" />
-        <span v-if="button" v-html="button"></span>
-        <span class="vpi-chevron-down text-icon" />
+        <span class="mdi mdi-account" />
+
+        <!-- <span v-if="icon" :class="[icon, 'option-icon']" /> -->
+        <!-- <span v-if="button" v-html="button"></span> -->
+        <!-- <span class="vpi-chevron-down text-icon" /> -->
       </span>
       <span v-else class="vpi-more-horizontal icon" />
     </button>
 
     <div class="menu">
-      <VPMenu :items="items">
+      <JMenu :items="items">
         <slot />
-      </VPMenu>
+      </JMenu>
     </div>
   </div>
 </template>

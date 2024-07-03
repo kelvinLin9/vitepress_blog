@@ -76,21 +76,23 @@ export default withPwa(defineConfig({
         ]
       },
       { text: 'ydrive', link: '/guide' },
+
+    ],
+    navCustom: [
       {
-        text: 'Mine',
+        icon: "github",
         items: [
           { text: '', 
             items: [
               { text: 'My Profile', link: '/guide/mine/profile' },
-              { text: 'My Wallet', link: '/guide/mine/wallet' },
+              { text: 'My Library', link: '/guide/mine/library' },
               { text: 'My Usage', link: '/guide/mine/usage' },
               { text: 'My Runtime', link: '/guide/mine/runtime' },
               { text: 'My Setting', link: '/guide/mine/setting' },
               { text: 'FAQ', link: '/guide/mine/faq' },
             ]
           },
-          { text: '登入' , link: 'http://localhost:5173/jdocs/' },
-          
+          // { text: '登入' , link: 'http://localhost:5173/jdocs/' },
         ]
       },
     ],

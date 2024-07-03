@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useData } from '../composables/data'
 import VPNavBarMenuLink from './VPNavBarMenuLink.vue'
-import VPNavBarMenuGroup from './VPNavBarMenuGroup.vue'
+// import VPNavBarMenuGroup from './VPNavBarMenuGroup.vue'
 
 const { theme } = useData()
 </script>
@@ -11,7 +11,7 @@ const { theme } = useData()
     <span id="main-nav-aria-label" class="visually-hidden">Main Navigation</span>
     <template v-for="item in theme.nav" :key="item.text">
       <VPNavBarMenuLink v-if="'link' in item" :item="item" />
-      <VPNavBarMenuGroup v-else :item="item" />
+      <!-- <VPNavBarMenuGroup v-else :item="item" /> -->
     </template>
   </nav>
 </template>
