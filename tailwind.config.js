@@ -6,18 +6,13 @@ export default {
     "./docs/**/*.css",
     "./docs/**/*.ts",
     "./docs/**/*.md",
+    "./src/**/*.js",
+    "./src/**/*.vue",
+    "./src/**/*.css",
+    "./src/**/*.ts",
+    "./src/**/*.md",
   ],
-  // options: {
-  //   safelist: ["html", "body"],
-  // },
-  theme: {
-    screens: {
-      'xs': '480px',
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
-    },
+  options: {
+    safelist: ["html", "body"],
   },
 };
