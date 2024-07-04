@@ -7,7 +7,7 @@ defineProps<{
 }>()
 
 const VPCarbonAds = __CARBON__
-  ? defineAsyncComponent(() => import('./VPCarbonAds.vue'))
+  ? defineAsyncComponent(() => import('../VPCarbonAds.vue'))
   : () => null
 </script>
 

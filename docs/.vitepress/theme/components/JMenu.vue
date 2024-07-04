@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 import JMenuLink from './JMenuLink.vue'
 import JMenuGroup from './JMenuGroup.vue'
+import Login from '../../../../src/components/auth/Login.vue'
+import { storeToRefs } from "pinia";
+import { useAuthStore } from "../../../../src/store/auth";
+const authStore = useAuthStore();
+const { user, Uid } = storeToRefs(authStore)
 
 defineProps<{
   items?: any[]
@@ -9,13 +14,19 @@ defineProps<{
 
 <template>
   <div class="VPMenu">
-    <div v-if="items" class="items">
+    <div v-if="items && user?.Uid" class="items">
       <template v-for="item in items" :key="item.text">
+        <div class="">
+          <p class="text-xs">{{ user.UserName }}</p>
+          <p class="text-xs">{{ user.FullName }}</p>
+          
+        </div>
         <JMenuLink v-if="'link' in item" :item="item" />
         <JMenuGroup v-else :text="item.text" :items="item.items" />
       </template>
     </div>
     <slot />
+    <Login />
   </div>
 </template>
 

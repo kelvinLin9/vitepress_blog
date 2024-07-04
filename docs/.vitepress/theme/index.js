@@ -23,16 +23,13 @@ import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import AbcNotation from './components/AbcNotation.vue'
 
 // layout
-import Layout from './Layout.vue'
 import Init from './components/Init.vue'
-import VPNav from './components/VPNav.vue'
 import Login from '../../../src/components/auth/Login.vue'
 import HeaderLogin from './components/HeaderLogin.vue'
 
 
 /** @type {import('vitepress').Theme} */
 export default {
-  // Layout,
   extends: DefaultTheme, 
   Layout: () => {
     return h(DefaultTheme.Layout, null, {

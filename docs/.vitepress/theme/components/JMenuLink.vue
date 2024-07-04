@@ -19,7 +19,8 @@ const { page } = useData()
       :target="item.target"
       :rel="item.rel"
     >
-      {{ item.text }}
+      <span :class="item.icon" class="me-2"></span>
+      <span>{{ item.text }}</span> 
     </JLink>
   </div>
 </template>

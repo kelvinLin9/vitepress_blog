@@ -37,6 +37,20 @@ export default withPwa(defineConfig({
     define: {
       __DATE__: `'${new Date().toISOString()}'`,
     },
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      },
+      extensions: [
+        '.js',
+        '.json',
+        '.jsx',
+        '.mjs',
+        '.ts',
+        '.tsx',
+        '.vue',
+      ],
+    },
     plugins: [
       AutoSidebar({
         // You can also set options to adjust sidebar data
@@ -73,26 +87,27 @@ export default withPwa(defineConfig({
         items: [
           { text: 'Plugin', link: '/guide/lab/plugin' },
           { text: 'Settings', link: '/guide/lab/settings' },
+          { text: 'Edit', link: '/guide/lab/edit' },
         ]
       },
       { text: 'ydrive', link: '/guide' },
 
     ],
+    // *custom
     navCustom: [
       {
         icon: "github",
         items: [
           { text: '', 
             items: [
-              { text: 'My Profile', link: '/guide/mine/profile' },
-              { text: 'My Library', link: '/guide/mine/library' },
-              { text: 'My Usage', link: '/guide/mine/usage' },
-              { text: 'My Runtime', link: '/guide/mine/runtime' },
-              { text: 'My Setting', link: '/guide/mine/setting' },
-              { text: 'FAQ', link: '/guide/mine/faq' },
+              { text: 'My Profile', link: '/guide/mine/profile', icon: 'mdi mdi-card-account-details-outline'},
+              { text: 'My Library', link: '/guide/mine/library', icon: 'mdi mdi-wallet-membership' },
+              { text: 'My Usage', link: '/guide/mine/usage', icon: 'mdi mdi-semantic-web' },
+              { text: 'My Runtime', link: '/guide/mine/runtime', icon: 'mdi mdi-timer-sand' },
+              { text: 'My Setting', link: '/guide/mine/setting', icon: 'mdi mdi-cog-outline' },
+              { text: 'FAQ', link: '/guide/mine/faq', icon: 'mdi mdi-frequently-asked-questions' },
             ]
           },
-          // { text: '登入' , link: 'http://localhost:5173/jdocs/' },
         ]
       },
     ],

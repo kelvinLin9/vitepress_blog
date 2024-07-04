@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useLangs } from '../composables/langs'
-import VPLink from './VPLink.vue'
+import { useLangs } from '../../composables/langs'
+import VPLink from '../test/VPLink.vue'
 
 const { localeLinks, currentLang } = useLangs({ correspondingLink: true })
 const isOpen = ref(false)

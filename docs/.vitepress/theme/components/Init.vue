@@ -82,3 +82,4 @@ watch(() => mineToken.value, async(n) => {
 
 
 </script>
+<template></template>

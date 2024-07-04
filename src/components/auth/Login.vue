@@ -1,22 +1,21 @@
 <template>
-  <span class="mdi mdi-account"></span>
   <div v-if="Uid" class="text-end">
-    HI: {{ Uid }}
+    <!-- HI: {{ Uid }} -->
     <button
       @click="onLogout()"
       type="button" 
-      class="border rounded-lg px-2" 
+      class="border rounded-lg px-1" 
     >
-      登出
+      Logout
     </button>
   </div>
   <div v-if="!Uid" class="text-end">
     <button 
       @click="onLogin()"
       type="button" 
-      class="border rounded-lg px-2 bg-primary" 
+      class="border rounded-lg px-1 bg-primary" 
     >
-      登入
+      Login
     </button>
   </div>
 </template>
@@ -46,66 +45,3 @@ import { Toast } from "../../mixins/sweetAlert";
 
 
 </script>
-
-<style scoped>
-button {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  /* display: block; */
-}
-button:hover {
-  opacity: 0.8;
-}
-.border {
-  border: 1px solid #ccc;
-  padding: 8px;
-  border-radius: 4px;
-}
-
-.rounded-lg {
-  border-radius: 8px;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.ms-1 {
-  margin-left: 0.25rem;
-}
-
-.ms-auto {
-  margin-left: auto;
-}
-
-.me-2 {
-  margin-right: 0.5rem;
-}
-
-.my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
-
-.fs-12 {
-  font-size: 12px;
-}
-
-.fs-16 {
-  font-size: 16px;
-}
-.text-end {
-  text-align: end;
-}
-.bg-primary {
-  background-color: #1976D2; /* Blue */
-  color: white;
-}
-</style>
