@@ -35,7 +35,7 @@ export const useTrackStore = defineStore("track", () => {
     bid: webmmsStore.regInfo?.DDN || '',
     source: conf.TRACK_SOURCE,
     appinfo: {
-      product: `web-${conf.TRACK_SOURCE}`,
+      product: conf.TRACK_SOURCE,
       app_id: '',
       docs: '',
     },

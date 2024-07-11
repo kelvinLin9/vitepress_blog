@@ -15,9 +15,13 @@ hero:
   #     target: "_self"
   #     link: "https://account.ypcloud.com/auth/verify/?ReturnURL=http://localhost:5173/jdocs/callback"
 # features:
-#   - title: AI Docs
+#   - icon: 
+#       src: 'https://m3.ypcloud.com/cms/jdi_cards_sphere_cms_fbed0b95d1.png'
+#     title: AI Docs
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-#   - title: Group Docs
+#   - icon: 
+#       src: "https://cdn.jsdelivr.net/npm/@mdi/svg/svg/abjad-hebrew.svg"
+#     title: Group Docs
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 #   - title: My Docs
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -28,11 +32,14 @@ hero:
   </div> -->
 
 <script setup>
-  import VPNavBarTitle from 'vitepress/dist/client/theme-default/components/VPNavBar.vue'
-  // import VPNavScreen from 'vitepress/dist/client/theme-default/components/VPNavScreen.vue'
+import { useData } from 'vitepress'
+import Search from "../src/components/common/Search.vue"
+const { site } = useData()
 
 </script>
 
+<style scoped>
+  
+</style>
 
-<!-- <VPNavBarTitle/> -->
-<!-- <VPNavScreen/> -->
+<Search />

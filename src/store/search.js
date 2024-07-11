@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
-import { useRouter } from "vue-router";
-import { usejStoryDataStore } from './jStoryData';
+// import { useRouter } from "vue-router";
+// import { usejStoryDataStore } from './jStoryData';
 import { useWebChatStore } from "./webchat"
 import { useNearbyStore } from "./nearby";
-import { usePlayerStore } from "./player"
+// import { usePlayerStore } from "./player"
 import { Toast } from '../mixins/sweetAlert';
 import utils from "../plugins/utils";
 import axios from "axios";
@@ -12,9 +12,9 @@ import axios from "axios";
 
 
 export const useSearchStore = defineStore("searchStore", () => {
-  const jStoryDataStore = usejStoryDataStore();
-  const playerStore = usePlayerStore();
-  const router = useRouter();
+  // const jStoryDataStore = usejStoryDataStore();
+  // const playerStore = usePlayerStore();
+  // const router = useRouter();
   const webChatStore = useWebChatStore();
   const nearbyStore = useNearbyStore();
   const resultHandle = utils.resultHandle;
@@ -34,8 +34,8 @@ export const useSearchStore = defineStore("searchStore", () => {
     // searchText.value = searchText.value.trim()
     if(searchText.value.length === 0) return
     if (chatMode.value) {
-      searchLoading.value = true
-      chatData.value.push({ from: 'user', msg: searchText.value })
+      // searchLoading.value = true
+      // chatData.value.push({ from: 'user', msg: searchText.value })
       // await chatGPT(searchText.value)
       await chat(searchText.value)
       searchText.value = ""
@@ -53,16 +53,16 @@ export const useSearchStore = defineStore("searchStore", () => {
           window.open(newUrl, '_blank')
         },
         "##": async() => {
-          const sanitizedString = searchText.value.replace('##', '').toLocaleLowerCase()
-          searchLoading.value = true
-          let payload = { "filter": [ {"tags": sanitizedString} ] };
-          console.log(payload)
-          const res = await jStoryDataStore.getBrickDataByTags(payload)
-          if (res) router.push({name: 'brick', params: {brickName: sanitizedString}})
+          // const sanitizedString = searchText.value.replace('##', '').toLocaleLowerCase()
+          // searchLoading.value = true
+          // let payload = { "filter": [ {"tags": sanitizedString} ] };
+          // console.log(payload)
+          // const res = await jStoryDataStore.getBrickDataByTags(payload)
+          // if (res) router.push({name: 'brick', params: {brickName: sanitizedString}})
 
-          playerStore.isFullScreen = res
-          jStoryDataStore.brickMode = res
-          searchLoading.value = false
+          // playerStore.isFullScreen = res
+          // jStoryDataStore.brickMode = res
+          // searchLoading.value = false
 
         },
         "%%": () => {
@@ -75,12 +75,15 @@ export const useSearchStore = defineStore("searchStore", () => {
           // 
         },
         "@@": () => {
+          return
           const sanitizedString = searchText.value.replace('@@', '').toLocaleLowerCase()
           nearbyStore.nearbyChatDialog = true
           console.log(sanitizedString, nearbyStore.nearbyChatDialog)
 
           webChatStore.sendPubData.to = sanitizedString
           webChatStore.sendPubData.group = 'bot'
+
+
           // getBotMMA(sanitizedString)
           // webChatStore.sendPubData.mma = item.token.mma
           // 去要mma
@@ -104,22 +107,22 @@ export const useSearchStore = defineStore("searchStore", () => {
         const parts = lowerCaseValue.split('.')
         const format = parts.at(-1)
         const input = searchText.value.replace(`.${format}`, '')
-        searchLoading.value = true
+        // searchLoading.value = true
         const dotActions = {
           "story": async () => {
-            jStoryDataStore.chapter = 1
-            searchDialog.value = !await jStoryDataStore.getjStoryModeData(input);
-            router.push({name: 'story', params: {storyName: input}})
-            searchLoading.value = false
-            console.log(searchDialog.value)
+            // jStoryDataStore.chapter = 1
+            // searchDialog.value = !await jStoryDataStore.getjStoryModeData(input);
+            // router.push({name: 'story', params: {storyName: input}})
+            // searchLoading.value = false
+            // console.log(searchDialog.value)
           },
           "brick": async() => {
             // let payload = { "filter": [ {"tags": input} ] };
-            const res = await jStoryDataStore.getBrickModeData(input);
-            if (res) {
-              playerStore.isFullScreen = true;
-            }
-            searchLoading.value = false;
+            // const res = await jStoryDataStore.getBrickModeData(input);
+            // if (res) {
+            //   playerStore.isFullScreen = true;
+            // }
+            // searchLoading.value = false;
           },
           "shop": async() => {
             const newUrl = `https://apps.shoppu.tv/shop/${input}.shop`

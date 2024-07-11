@@ -36,19 +36,6 @@
     </div>
 
     <div class="text-end mt-6">
-      <!-- <button 
-        type="button" 
-        class="border rounded-lg px-2 me-2" 
-        @click="resetocaljDocsSettings()"
-      >
-        預設
-      </button>
-      <button 
-        type="button" 
-        class="border rounded-lg px-2 me-2" 
-      >
-        自動
-      </button> -->
       <button 
         class="border rounded-lg px-2 bg-primary"
       >
@@ -57,7 +44,6 @@
     </div>
   </VForm>
 
-{{ localjDocsSettings }}
 </template>
 
 <script setup>

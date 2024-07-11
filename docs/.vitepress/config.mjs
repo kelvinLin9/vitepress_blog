@@ -3,6 +3,7 @@ import { withPwa } from '@vite-pwa/vitepress'
 import { resolve } from 'path'
 import { fileURLToPath, URL } from 'node:url'
 import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
+import conf from '../../src/config/config.js'
 
 // markdown-it plugins
 import markdownItAnchor from 'markdown-it-anchor'
@@ -10,14 +11,6 @@ import markdownItAnchor from 'markdown-it-anchor'
 // import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import markdownItAbc from '../../src/mixins/abc.js'
 
-import conf from '../../src/config/config.js'
-const base = '/jdocs/' // '/vite-plugin-pwa/'
-
-// login
-import { defineStore } from 'pinia'
-import { useAuthStore } from '../../src/store/auth.js'
-// const authStore = useAuthStore()
-// console.log('asdf', authStore.Uid)
 
 // localStorage
 if (typeof globalThis.localStorage === 'undefined') {
@@ -29,7 +22,7 @@ if (typeof globalThis.localStorage === 'undefined') {
   };
 }
 
-console.log(globalThis.localStorage)
+// console.log(globalThis.localStorage)
 
 export default withPwa(defineConfig({
   vite: {
@@ -57,9 +50,8 @@ export default withPwa(defineConfig({
       })
     ],
   },
-  base,
+  base: conf.baseURL,
   assetsDir: './assets/ja', // pwa prompt
-  srcDir: '.',
   srcExclude: ['**/README.md', '**/TODO.md'],
   lang: 'en-US',
   title: 'jDocs',
@@ -76,22 +68,21 @@ export default withPwa(defineConfig({
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css' }],
   ],
   themeConfig: {
-    logo: { src: './icons/icon-192x192.png', width: 24, height: 24 },
+    logo: { src: './icons/icon-32x32.png' },
     footer: {
       message: '',
       copyright: '',
     },
     nav: [
-      {
-        text: 'Lab',
-        items: [
-          { text: 'Plugin', link: '/guide/lab/plugin' },
-          { text: 'Settings', link: '/guide/lab/settings' },
-          { text: 'Edit', link: '/guide/lab/edit' },
-        ]
-      },
+      // {
+      //   text: 'Lab',
+      //   items: [
+      //     { text: 'Plugin', link: '/guide/lab/plugin' },
+      //     { text: 'Edit', link: '/guide/lab/edit' },
+      //     { text: 'Form', link: '/guide/lab/form' },
+      //   ]
+      // },
       { text: 'ydrive', link: '/guide' },
-
     ],
     // *custom
     navCustom: [
@@ -100,12 +91,13 @@ export default withPwa(defineConfig({
         items: [
           { text: '', 
             items: [
-              { text: 'My Profile', link: '/guide/mine/profile', icon: 'mdi mdi-card-account-details-outline'},
-              { text: 'My Library', link: '/guide/mine/library', icon: 'mdi mdi-wallet-membership' },
-              { text: 'My Usage', link: '/guide/mine/usage', icon: 'mdi mdi-semantic-web' },
-              { text: 'My Runtime', link: '/guide/mine/runtime', icon: 'mdi mdi-timer-sand' },
               { text: 'My Setting', link: '/guide/mine/setting', icon: 'mdi mdi-cog-outline' },
-              { text: 'FAQ', link: '/guide/mine/faq', icon: 'mdi mdi-frequently-asked-questions' },
+              { text: 'My Profile', link: '/guide/mine/profile', icon: 'mdi mdi-card-account-details-outline'},
+              { text: 'My Docs', link: '/guide/mine/docs', icon: 'mdi mdi-file-document-outline' },
+              { text: 'My Device', link: '/guide/mine/device', icon: 'mdi mdi-devices' },
+              { text: 'My Bucket', link: '/guide/mine/bucket', icon: 'mdi mdi-bucket-outline' },
+              { text: 'My Qbix', link: '/guide/mine/qbix', icon: 'mdi mdi-cube-outline' },
+              { text: 'My Assets', link: '/guide/mine/assets', icon: 'mdi mdi-bank-outline' },
             ]
           },
         ]

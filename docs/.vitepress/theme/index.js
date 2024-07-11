@@ -1,39 +1,35 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
-// import './style.css'
-import './styles/tailwind.css'
+import Layout from './Layout.vue'
+
+import './styles/tailwind/tailwind.css'
 import './styles/vars.css'
 
+// pinia
 import { createPinia } from "pinia"
 import piniaPluginPersistedState from "pinia-plugin-persistedstate"
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedState)
 
+// pwa 
 import RegisterSW from './components/RegisterSW.vue'
 import ReloadPrompt from './components/ReloadPrompt.vue'
 
-//
-import Theme from 'vitepress/theme'
-import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client' 
-// import '@shikijs/vitepress-twoslash/style.css' 
-// import type { EnhanceAppContext } from 'vitepress'
-
-// abcjs
+// mdit plugin
 import AbcNotation from './components/AbcNotation.vue'
+import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client' 
 
-// layout
+// layout components
 import Init from './components/Init.vue'
-import Login from '../../../src/components/auth/Login.vue'
 import HeaderLogin from './components/HeaderLogin.vue'
 
 
 /** @type {import('vitepress').Theme} */
 export default {
-  extends: DefaultTheme, 
+  // extends: DefaultTheme, 
   Layout: () => {
-    return h(DefaultTheme.Layout, null, {
-      // 'layout-bottom': () => h(RegisterSW)
+    return h(Layout, null, {
       'layout-bottom': () => h(ReloadPrompt),
       'layout-top': () => h(Init),
       'nav-bar-content-after': () => h(HeaderLogin),

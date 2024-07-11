@@ -902,7 +902,7 @@ export const useWebChatStore = defineStore('webChatStore', () =>{
   const sendUseTime = async (time, id) => {
     const payload = {
       "type": "message",
-      "content": time > 3000 ? `cast://agent ${id} ${time} high` : `cast://agent ${id} ${time}`
+      "content": time > 3000 ? `docs://get ${id} ${time} high` : `docs://get ${id} ${time}`
     }
     try {
       const res = await mcSend(
@@ -916,7 +916,7 @@ export const useWebChatStore = defineStore('webChatStore', () =>{
     }
   }
   const handleXMsg = (msg) => {
-    console.log(msg.data.Data)
+    console.log('XMsg', msg.data.Data)
     if (msg.data.ErrCode !== 0) {
       Toast.fire({
         title: msg.data.ErrCode,
@@ -925,7 +925,7 @@ export const useWebChatStore = defineStore('webChatStore', () =>{
       });
       return;
     }
-
+    // 現在回傳的跟jstory結構不一樣 要再討論
     const ticketId = msg.data.Data.envelope.ticket.id;
     const ticket = utils.tickets.get(ticketId);
     const useTime = Date.now() - ticket.timestamp;

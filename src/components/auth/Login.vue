@@ -1,5 +1,5 @@
 <template>
-  <div v-if="Uid" class="text-end">
+  <div v-if="user?.Uid" class="text-end">
     <!-- HI: {{ Uid }} -->
     <button
       @click="onLogout()"
@@ -9,7 +9,7 @@
       Logout
     </button>
   </div>
-  <div v-if="!Uid" class="text-end">
+  <div v-else class="text-end">
     <button 
       @click="onLogin()"
       type="button" 
@@ -27,10 +27,14 @@ import conf from "../../config/config";
 import { Toast } from "../../mixins/sweetAlert";
 
   const authStore = useAuthStore();
-  const { Uid } = storeToRefs(authStore)
+  const { user } = storeToRefs(authStore)
 
   const onLogin = () => {
     console.log(window.location)
+    console.log(conf)
+    if(conf.baseURL === '/') {
+      conf.baseURL = ''
+    }
     console.log(`${conf.LOGIN_URL + window.location.origin + conf.baseURL + '/callback'}`)
     window.location.href = `${conf.LOGIN_URL + window.location.origin + conf.baseURL + '/callback'}` 
   };

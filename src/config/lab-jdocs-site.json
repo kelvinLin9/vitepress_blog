@@ -1,5 +1,5 @@
 {
-  "BASE_URL": "/jdocs",
+  "BASE_URL": "/jdocs/",
   "APP_URL": "https://web.git.page/jdocs",
   "BASE_IMAGE_URL": "https://web.git.page/jdocs",
   "VUE_LOGIN_URL": "https://account.ypcloud.com/auth/verify/?ReturnURL=",
@@ -87,6 +87,13 @@
     "MMA": "sys/",
     "TOPIC": {
       "IN_LOCAL" : "in://local"
+    }
+  },
+  "DOCS": {
+    "MMA": ">q11/pivot/docs-app",
+    "TOPIC": {
+      "DOCS_GET": "docs://get",
+      "PORTAL_DOCS": "portal://docs"
     }
   }
 }

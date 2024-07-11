@@ -1,27 +1,31 @@
 import configLab from './lab-jdocs-site.json';
 import configApps from './apps-jdocs-site.json';
+import dotenv from 'dotenv';
 
-// const viteSiteConfig = import.meta.env.VITE_SITE_CONFIG
+// let siteConfig = {};
+// if (typeof window === 'undefined') {
+//   // dotenv.config();
+//   switch ('apps-jdocs-site.json') {
+//     case 'lab-jdocs-site.json':
+//       siteConfig = configLab;
+//       console.log('lab', siteConfig);
+//       break;
+//     case 'apps-jdocs-site.json':
+//       siteConfig = configApps;
+//       console.log('apps');
+//       break;
+//     default:
+//       siteConfig = configLab;
+//       // siteConfig = configApps;
+//       console.log('default');
+//       break;
+//   }
+// }
 
-let siteConfig = {};
-switch (false) {
-  case 'lab-jdocs-site.json':
-    // console.log('lab-jdocs-site', configLab);
-    siteConfig = configLab;
-    break;
-  case 'apps-jdocs-site.json':
-    // console.log('apps-jdocs-site', configApps);
-    siteConfig = configApps;
-    break;
-  default:
-    siteConfig = configApps;
-    // siteConfig = configApps;
-    // console.log('apps-jdocs-site', configApps);
-    break;
-}
+const siteConfig = configApps
 
 const config = {
-  "version": "0.0.1",
+  "version": "0.0.4",
   "baseURL": siteConfig.BASE_URL || "/",
   "wsurl": "https://ws1.ypcloud.com",
   "OBJ_STORE": ">svc/OBJSTORE",
@@ -30,7 +34,7 @@ const config = {
 
   "EI_NAME_PREFIX": "wbjDocs-",
   "EI_TYPE": ".web",
-  "ENABLE_TRACK": siteConfig.TRACK.ENABLE || 1,
+  "ENABLE_TRACK": siteConfig?.TRACK?.ENABLE || 1,
   "TRACK_PAGE": "jdocs",
   "TRACK_SOURCE": "jdocs",
   
@@ -47,6 +51,7 @@ const config = {
   "S3": siteConfig.S3,
   "MINE": siteConfig.MINE,
   "SYS": siteConfig.SYS,
+  "DOCS": siteConfig.DOCS,
 };
 export default config;
 
