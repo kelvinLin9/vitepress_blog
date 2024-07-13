@@ -61,8 +61,8 @@
     </tbody>
   </table>
 
-  {{ user }}
-  {{ user.Picture }}
+  <!-- {{ user }} -->
+  <!-- {{ user.Picture }} -->
   <!-- <div class="table w-full ...">
   <div class="table-header-group ...">
     <div class="table-row">
