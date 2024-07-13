@@ -55,7 +55,8 @@ export default withPwa(defineConfig({
   srcExclude: ['**/README.md', '**/TODO.md'],
   lang: 'en-US',
   title: 'jDocs',
-  description: 'Vite Plugin PWA Integration example for VitePress',
+  description: '',
+  lastUpdated: true,
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: 'favicon.ico' }],

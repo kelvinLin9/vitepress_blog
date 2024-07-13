@@ -897,7 +897,6 @@ export const useWebChatStore = defineStore('webChatStore', () =>{
 
 
   // handleXMsg
-
   const XMsgBox = ref(new Map())
   const sendUseTime = async (time, id) => {
     const payload = {

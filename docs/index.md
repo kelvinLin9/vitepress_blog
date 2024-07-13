@@ -34,6 +34,7 @@ hero:
 <script setup>
 import { useData } from 'vitepress'
 import Search from "../src/components/common/Search.vue"
+import MD from "../src/components/common/MD.vue"
 const { site } = useData()
 
 </script>
@@ -43,3 +44,20 @@ const { site } = useData()
 </style>
 
 <Search />
+<MD />
+
+### crm://mms
+
+mma: >pvt/crm 
+
+| topic | description | payload | result | note |
+| ----- | ----------- | ------- | ------ | ---- |
+| crm://log       | query log by vat or uid |`{"logtype":"app", "vat": "01478473", "sort": "time:desc", "page": 1, "pageSize": 10}`  <br> or <br>`{"logtype":"event", "Uid":"ccP1N51y","sort": "x_eventtime:desc", "page": 1, "pageSize": 10}`  <br> or <br>  `{"logtype":"login", "Uid":"ccP1N51y"}`         | result = {}       |      |
+<!-- | crm://search      |search specify field contains keyword             |{ "collection":"members", "search":[  {"field":"name"},  {"field":"company_name"} ], "keyword":"yp", "sort":{ "field":"vat",  "sort":"desc"},  "page":1, "pageSize":10 , "attributes":   " name company_name email vat x_app"}         |result = {}        |      |
+|crm://query        | Query with filter and sort             |{"collection": "members",    "filter":[{   "field":"name",   "op": "contansi",   "value":"yp"}],"sort":{ "field":"updatedAt", "sort":"desc"}, "attributes":   " name company_name email vat  x_app", "page":1, "pageSize":10}         | result = {}       |      |
+|crm://list       | List records             |{ "collection": "members", "start": 410, "limit": 30}                    |result = {}        |      |
+|crm://get       |Get one record             |{ "collection":"members", "id":"421"}                                                                                               | result = {}       |      |
+|crm://graphql       |query by graplql string              |{ "collection": "members", "query": "query{members(filters:{and:[{name:{containsi:"YP"}}{vat:{eq:"27962768"}}]} sort:["updatedAt:desc"]){data{id attributes{ name company_name vat email x_app}}}}"         |result = {}        |      |
+|crm://hr_apply       |create or update HR apply               |{ "collection": "members", "data": {"name": "姓名","email": "電子郵件", "mobile": "手機", "school": "學校",  "degree": "科系", "x_app": "應徵職務", "x_menu": "備註", "category": 22  }}|result = {}        | check email to create or update     | -->
+
+{{ $frontmatter.hero }}

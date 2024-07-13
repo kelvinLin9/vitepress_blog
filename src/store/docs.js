@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { Toast } from "../mixins/sweetAlert"
 import { useWebChatStore } from './webchat';
 import { useAuthStore } from "./auth";
+import axios from 'axios';
 
 import utils from "../plugins/utils";
 import conf from "../config/config";
@@ -12,9 +13,9 @@ const { withAsyncErrorHandling } = utils
 export const useDocsStore = defineStore('DocsStore', () =>{
   const webChatStore = useWebChatStore()
   const authStore = useAuthStore()
-
+  
   const docsLoading = ref(false);
-  // const docsState = ref('');
+  const docsData = ref([])
 
   // docs
   const getDocs = withAsyncErrorHandling(async() => {
@@ -25,10 +26,12 @@ export const useDocsStore = defineStore('DocsStore', () =>{
       conf.DOCS.TOPIC.DOCS_GET,
       payload,
     );
-    console.log('getDocs', reply)
     const result = utils.resultHandle(reply)
-    if (result?.result?.ErrCode === 0 || result?.result?.ErrMsg === 'OK') {
+    console.log('getDocs', result)
+    if (result?.ErrCode === 0 || result?.ErrMsg === 'OK') {
       // docsState.value = result.result.result
+      console.log(result)
+      transformData(result.Data.data)
     } else {
       console.error(result?.result?.ErrMsg)
     }
@@ -60,8 +63,24 @@ export const useDocsStore = defineStore('DocsStore', () =>{
     }
   })
 
+
+  async function transformData(data) {
+    const transformed = await Promise.all(data.map(async item => {
+        const res = await axios.get(item.link);
+        return {
+            name: item.txt,
+            content: res.data
+        };
+    }));
+
+    console.log(transformed);
+    docsData.value = transformed
+    return transformed;
+}
+
   return {
     docsLoading,
+    docsData,
     getDocs,
     getDocsByAgent,
   }
