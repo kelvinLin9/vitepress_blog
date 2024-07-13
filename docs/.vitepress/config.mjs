@@ -50,7 +50,7 @@ export default withPwa(defineConfig({
       })
     ],
   },
-  base: 'vitepress_blog',
+  base: '/vitepress_blog/',
   assetsDir: './assets/ja', // pwa prompt
   srcExclude: ['**/README.md', '**/TODO.md'],
   lang: 'en-US',
