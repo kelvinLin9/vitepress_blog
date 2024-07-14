@@ -1,0 +1,139 @@
+{
+  "hash": "0fb1867a",
+  "configHash": "e27ba8fb",
+  "lockfileHash": "8484d9c0",
+  "browserHash": "b9fb822e",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "9955e7ea",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "755438df",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/core": {
+      "src": "../../../../node_modules/@vueuse/core/index.mjs",
+      "file": "vitepress___@vueuse_core.js",
+      "fileHash": "cce31ac9",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/integrations/useFocusTrap": {
+      "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
+      "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
+      "fileHash": "ff276493",
+      "needsInterop": false
+    },
+    "vitepress > mark.js/src/vanilla.js": {
+      "src": "../../../../node_modules/mark.js/src/vanilla.js",
+      "file": "vitepress___mark__js_src_vanilla__js.js",
+      "fileHash": "f0a2a7ad",
+      "needsInterop": false
+    },
+    "vitepress > minisearch": {
+      "src": "../../../../node_modules/minisearch/dist/es/index.js",
+      "file": "vitepress___minisearch.js",
+      "fileHash": "ca65b56c",
+      "needsInterop": false
+    },
+    "pinia": {
+      "src": "../../../../node_modules/pinia/dist/pinia.mjs",
+      "file": "pinia.js",
+      "fileHash": "268b9e02",
+      "needsInterop": false
+    },
+    "pinia-plugin-persistedstate": {
+      "src": "../../../../node_modules/pinia-plugin-persistedstate/dist/index.mjs",
+      "file": "pinia-plugin-persistedstate.js",
+      "fileHash": "d6c90328",
+      "needsInterop": false
+    },
+    "@shikijs/vitepress-twoslash/client": {
+      "src": "../../../../node_modules/@shikijs/vitepress-twoslash/dist/client.mjs",
+      "file": "@shikijs_vitepress-twoslash_client.js",
+      "fileHash": "ac0d8909",
+      "needsInterop": false
+    },
+    "abcjs": {
+      "src": "../../../../node_modules/abcjs/index.js",
+      "file": "abcjs.js",
+      "fileHash": "530c2745",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "1438c574",
+      "needsInterop": false
+    },
+    "sweetalert2/dist/sweetalert2.js": {
+      "src": "../../../../node_modules/sweetalert2/dist/sweetalert2.js",
+      "file": "sweetalert2_dist_sweetalert2__js.js",
+      "fileHash": "d81e5370",
+      "needsInterop": true
+    },
+    "dotenv": {
+      "src": "../../../../node_modules/dotenv/lib/main.js",
+      "file": "dotenv.js",
+      "fileHash": "ed100d8f",
+      "needsInterop": true
+    },
+    "device-detector-js": {
+      "src": "../../../../node_modules/device-detector-js/dist/index.js",
+      "file": "device-detector-js.js",
+      "fileHash": "98ce9185",
+      "needsInterop": true
+    },
+    "socket.io-client": {
+      "src": "../../../../node_modules/socket.io-client/build/esm/index.js",
+      "file": "socket__io-client.js",
+      "fileHash": "dfe4b90d",
+      "needsInterop": false
+    },
+    "workbox-window": {
+      "src": "../../../../node_modules/workbox-window/build/workbox-window.prod.es5.mjs",
+      "file": "workbox-window.js",
+      "fileHash": "0ecd7159",
+      "needsInterop": false
+    },
+    "vee-validate": {
+      "src": "../../../../node_modules/vee-validate/dist/vee-validate.esm.js",
+      "file": "vee-validate.js",
+      "fileHash": "a8e7ec6c",
+      "needsInterop": false
+    },
+    "@vee-validate/rules": {
+      "src": "../../../../node_modules/@vee-validate/rules/dist/vee-validate-rules.esm.js",
+      "file": "@vee-validate_rules.js",
+      "fileHash": "39a51746",
+      "needsInterop": false
+    },
+    "@vee-validate/i18n": {
+      "src": "../../../../node_modules/@vee-validate/i18n/dist/vee-validate-i18n.esm.js",
+      "file": "@vee-validate_i18n.js",
+      "fileHash": "efd97e95",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-GOLUZS2Q": {
+      "file": "chunk-GOLUZS2Q.js"
+    },
+    "chunk-PVOEQJR4": {
+      "file": "chunk-PVOEQJR4.js"
+    },
+    "chunk-O3YQPVDG": {
+      "file": "chunk-O3YQPVDG.js"
+    },
+    "chunk-BJ3OZQ3N": {
+      "file": "chunk-BJ3OZQ3N.js"
+    },
+    "chunk-HKJ2B2AA": {
+      "file": "chunk-HKJ2B2AA.js"
+    }
+  }
+}

@@ -1,19 +1,11 @@
-# Build and Release Folders
-node_modules
-docs/.vitepress/dist
-docs/.vitepress/cache
-.DS_Store
-.vscode
-
 .DS_Store
 node_modules
 docs/.vitepress/dist
 docs/.vitepress/cache
-.vitepress/dist
-.vitepress/cache
-src/dev-dist
+docs/dev-dist
 
 # local env files
+.env
 .env.local
 .env.*.local
 
