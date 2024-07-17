@@ -51,7 +51,7 @@ export const useDocsStore = defineStore('DocsStore', () =>{
     }
     const reply = await webChatStore.mcSend(
       conf.DOCS.MMA,
-      conf.DOCS.TOPIC.PORTAL_DOCS,
+      conf.DOCS.TOPIC.CAST_AGENT,
       payload,
     );
     console.log('getDocsByAgent', reply)

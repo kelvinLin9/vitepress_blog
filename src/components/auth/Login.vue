@@ -1,10 +1,9 @@
 <template>
   <div v-if="user?.Uid" class="text-end">
-    <!-- HI: {{ Uid }} -->
     <button
       @click="onLogout()"
       type="button" 
-      class="border rounded-lg px-1" 
+      class="border rounded-lg px-1 mt-2" 
     >
       Logout
     </button>

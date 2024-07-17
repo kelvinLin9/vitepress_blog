@@ -7,6 +7,7 @@ import { useAuthStore } from "../../../../src/store/auth"
 import { useMineStore } from "../../../../src/store/mine"
 import { useSettingStore } from "../../../../src/store/setting"
 import { useDocsStore } from "../../../../src/store/docs"
+import { useUploadStore } from '../../../../src/store/upload';
 import axios from 'axios';
  
 
@@ -38,6 +39,9 @@ const { docsData } = storeToRefs(docsStore)
 const getDocs = docsStore.getDocs
 const getDocsByAgent = docsStore.getDocsByAgent
 
+const uploadStore = useUploadStore()
+const uploadFile = uploadStore.uploadFile
+const getS3Object = uploadStore.getS3Object
 
 onMounted(async () => {
   startMMS()
@@ -58,6 +62,7 @@ watch(() => appState.value, async(n) => {
     checkUser()
     getDocs()
     getDocsByAgent()
+    getS3Object()
   }
 })
 

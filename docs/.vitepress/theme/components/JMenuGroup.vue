@@ -31,7 +31,9 @@ defineProps<{
 
 .VPMenuGroup + .VPMenuGroup {
   margin-top: 12px;
+  padding-bottom: 12px; /* custom */
   border-top: 1px solid var(--vp-c-divider);
+  border-bottom: 1px solid var(--vp-c-divider); /* custom */
 }
 
 .title {

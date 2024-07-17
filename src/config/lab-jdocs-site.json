@@ -90,10 +90,10 @@
     }
   },
   "DOCS": {
-    "MMA": ">q11/pivot/docs-app",
+    "MMA": ">hub/cast",
     "TOPIC": {
       "DOCS_GET": "docs://get",
-      "PORTAL_DOCS": "portal://docs"
+      "CAST_AGENT": "cast://agent"
     }
   }
 }

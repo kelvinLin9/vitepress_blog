@@ -512,6 +512,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
+  /* --vp-home-hero-name-color: var(--vp-c-brand-1); */
   --vp-home-hero-name-color: var(--vp-c-brand-1);
   --vp-home-hero-name-background: transparent;
 
