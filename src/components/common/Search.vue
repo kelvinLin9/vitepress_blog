@@ -16,7 +16,7 @@
 
 
 
-<div class="px-4 py-3 rounded-full border md:w-1/2 bg-white text-black">
+<div class="px-4 rounded-full border md:w-1/2 bg-white text-black">
   <div class="flex justify-between">
     <div class="flex items-center">
       <button>

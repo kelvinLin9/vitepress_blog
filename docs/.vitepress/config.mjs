@@ -50,6 +50,8 @@ export default withPwa(defineConfig({
     plugins: [
       AutoSidebar({
         // You can also set options to adjust sidebar data
+        path: '/docs/en',
+        ignoreList: ['mine'],
       })
     ],
   },

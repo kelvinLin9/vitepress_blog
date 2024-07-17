@@ -197,10 +197,18 @@ export const useUploadStore =  defineStore("uploadStore", () => {
         secretKey: 'm!kiYPcl0ud@#'
       });
 
-      minioClient.presignedUrl('GET', 'aigc', '烏龜島 550x200.png', 24 * 60 * 60, function (err, presignedUrl) {
+      minioClient.presignedUrl('GET', 'kelvin.guide', 'ultra/crm-topic-1.md', 24 * 60 * 60, function (err, presignedUrl) {
+      // minioClient.presignedUrl('GET', 'aigc', '烏龜島 550x200.png', 24 * 60 * 60, function (err, presignedUrl) {
         if (err) return console.log(err)
         console.log('Presigned URL: ', presignedUrl)
         fileUrl = presignedUrl;
+      })
+      
+      minioClient.fGetObject('kelvin.guide', 'crm-topic-1.md', '/ultra/crm-topic-1.md', function (err) {
+        if (err) {
+          return console.log(err)
+        }
+        console.log('success')
       })
       minioClient.listBuckets(function(err, buckets) {
         if (err) {
@@ -209,6 +217,17 @@ export const useUploadStore =  defineStore("uploadStore", () => {
         }
         console.log('Buckets:', buckets);
       });
+      const data = []
+      const stream = minioClient.listObjects('kelvin.guide', '', true)
+      stream.on('data', function (obj) {
+        data.push(obj)
+      })
+      stream.on('end', function (obj) {
+        console.log(data)
+      })
+      stream.on('error', function (err) {
+        console.log(err)
+      })
     }
 
 

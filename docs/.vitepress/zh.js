@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
 
 export const zh = defineConfig({
   lang: 'zh-TW',
@@ -15,6 +16,15 @@ export const zh = defineConfig({
       provider: 'local'
     },
   },
+  vite: {
+    plugins: [
+      AutoSidebar({
+        // You can also set options to adjust sidebar data
+        path: '/docs/zh',
+        ignoreList: ['mine'],
+      })
+    ],
+  }
 })
 
 
