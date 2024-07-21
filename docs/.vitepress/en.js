@@ -28,7 +28,8 @@ function nav() {
     //     { text: 'Form', link: '/guide/lab/form' },
     //   ]
     // },
-    { text: 'ydrive', link: '/guide/ydrive', activeMatch:'/guide' },
+    // { text: 'ydrive', link: '/guide/ydrive', activeMatch:'/guide/ydrive' },
+    { text: 's3', link: '/guide/s3', activeMatch:'/guide/s3' },
   ]
 }
 
@@ -40,7 +41,7 @@ function navCustom() {
         { text: '', 
           items: [
             { text: 'Setting', link: '/guide/mine/setting', icon: 'mdi mdi-cog-outline' },
-            { text: 'Scan Device', link: '/guide/mine/setting', icon: 'mdi mdi-devices' },
+            { text: 'Scan Device', link: '/guide/mine/device', icon: 'mdi mdi-devices' },
           ]
         },
         {

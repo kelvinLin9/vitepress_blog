@@ -2,7 +2,7 @@
   <div>
     <div class="text-2xl font-bold">Profile</div>
   </div>
-  <table class="w-full table table-fixed border-0 overflow-x-auto">
+  <table class="w-full table table-fixed overflow-x-auto">
     <thead class="table-header-group text-xs text-gray-700 uppercase bg-gray-50">
       <tr class="table-row">
         <th scope="col" class="w-1/3 table-cell">Field</th>
@@ -61,38 +61,9 @@
     </tbody>
   </table>
 
-  {{ user }}
-  {{ user.Picture }}
-  <!-- <div class="table w-full ...">
-  <div class="table-header-group ...">
-    <div class="table-row">
-      <div class="table-cell text-left ...">Song</div>
-      <div class="table-cell text-left ...">Artist</div>
-      <div class="table-cell text-left ...">Year</div>
-    </div>
-  </div>
-  <div class="table-row-group">
-    <div class="table-row">
-      <div class="table-cell ...">The Sliding Mr. Bones (Next Stop, Pottersville)</div>
-      <div class="table-cell ...">Malcolm Lockyer</div>
-      <div class="table-cell ...">1961</div>
-    </div>
-    <div class="table-row">
-      <div class="table-cell ...">Witchy Woman</div>
-      <div class="table-cell ...">The Eagles</div>
-      <div class="table-cell ...">1972</div>
-    </div>
-    <div class="table-row">
-      <div class="table-cell ...">Shining Star</div>
-      <div class="table-cell ...">Earth, Wind, and Fire</div>
-      <div class="table-cell ...">1975</div>
-    </div>
-  </div>
-</div> -->
 
-
-<div class="vp-raw">
-  <table class="w-full table table-fixed border-0 overflow-x-auto">
+<div class="vp-ra">
+  <table class="w-full table table-fixed border- overflow-x-auto">
     <thead class="table-header-group text-xs text-gray-700 uppercase bg-gray-50">
       <tr class="table-row">
         <th scope="col" class="w-1/3 table-cell">Field</th>

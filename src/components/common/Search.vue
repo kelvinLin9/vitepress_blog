@@ -27,7 +27,7 @@
       <input
         type="text"
         placeholder="Topic or Expression"
-        class="form-input block w-full focus:ring-0"
+        class="form-input block w-full focus:ring-0 py-2"
         v-model="searchText"
         @keydown.enter="handleEnterKey"
         @focus="showSearchHistory = true"  

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user?.Uid" class="text-end">
+  <!-- <div v-if="user?.Uid" class="text-end">
     <button
       @click="onLogout()"
       type="button" 
@@ -16,34 +16,29 @@
     >
       Login
     </button>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
-import { storeToRefs } from "pinia";
-import { useAuthStore } from "../../store/auth";
-import conf from "../../config/config";
-import { Toast } from "../../mixins/sweetAlert";
+// import { Toast } from "../../mixins/sweetAlert";
 
-  const authStore = useAuthStore();
-  const { user } = storeToRefs(authStore)
 
-  const onLogin = () => {
-    console.log(window.location)
-    console.log(conf)
-    if(conf.baseURL === '/') {
-      conf.baseURL = ''
-    }
-    console.log(`${conf.LOGIN_URL + window.location.origin + conf.baseURL + '/callback'}`)
-    window.location.href = `${conf.LOGIN_URL + window.location.origin + conf.baseURL + '/callback'}` 
-  };
-  const onLogout = () => {
-  authStore.logout();
-  Toast.fire({
-    title: '登出成功',
-    icon: 'success'
-  })
-};
+//   const onLogin = () => {
+//     console.log(window.location)
+//     console.log(conf)
+//     if(conf.baseURL === '/') {
+//       conf.baseURL = ''
+//     }
+//     console.log(`${conf.LOGIN_URL + window.location.origin + conf.baseURL + '/callback'}`)
+//     window.location.href = `${conf.LOGIN_URL + window.location.origin + conf.baseURL + '/callback'}` 
+//   };
+//   const onLogout = () => {
+//   authStore.logout();
+//   Toast.fire({
+//     title: '登出成功',
+//     icon: 'success'
+//   })
+// };
 
 
 

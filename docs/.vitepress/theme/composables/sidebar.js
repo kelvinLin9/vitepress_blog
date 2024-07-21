@@ -3,6 +3,7 @@ import { computed, onMounted, onUnmounted, ref, watch, watchEffect, watchPostEff
 import { isActive } from '../shared';
 import { hasActiveLink as containsActiveLink, getSidebar, getSidebarGroups } from '../support/sidebar';
 import { useData } from './data';
+
 export function useSidebar() {
     const { frontmatter, page, theme } = useData();
     const is960 = useMediaQuery('(min-width: 960px)');

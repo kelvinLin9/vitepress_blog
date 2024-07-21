@@ -5,6 +5,7 @@ import Layout from './Layout.vue'
 
 import './styles/tailwind/tailwind.css'
 import './styles/vars.css'
+import './styles/custom.css'
 
 // pinia
 import { createPinia } from "pinia"
@@ -23,6 +24,7 @@ import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 // layout components
 import Init from './components/Init.vue'
 import HeaderLogin from './components/HeaderLogin.vue'
+import MD from './components/MD.vue'
 
 
 /** @type {import('vitepress').Theme} */
@@ -39,5 +41,6 @@ export default {
     app.use(pinia)
     app.use(TwoslashFloatingVue)
     app.component('AbcNotation', AbcNotation)
+    app.component('MD', MD)
   }
 }

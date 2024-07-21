@@ -3,10 +3,8 @@ import { withPwa } from '@vite-pwa/vitepress'
 import { resolve } from 'path'
 import { fileURLToPath, URL } from 'node:url'
 import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
-import conf from '../../src/config/config.js'
 import { en } from './en.js'
 import { zh } from './zh.js'
-
 
 // markdown-it plugins
 import markdownItAnchor from 'markdown-it-anchor'
@@ -48,18 +46,18 @@ export default withPwa(defineConfig({
       ],
     },
     plugins: [
-      AutoSidebar({
-        // You can also set options to adjust sidebar data
-        path: '/docs/en',
-        ignoreList: ['mine'],
-      })
+      // AutoSidebar({
+      //   // You can also set options to adjust sidebar data
+      //   path: '/docs/en',
+      //   ignoreList: ['mine'],
+      // })
     ],
   },
-  base: conf.baseURL,
+  base: '/vitepress_blog',
   assetsDir: './assets/ja', // pwa prompt
   srcExclude: ['**/README.md', '**/TODO.md'],
   lang: 'en-US',
-  title: 'jDocs',
+  title: "Kelvin's Blog",
   description: '',
   lastUpdated: true,
   head: [
@@ -73,55 +71,32 @@ export default withPwa(defineConfig({
     ['link', { rel: 'apple-touch-icon', href: './icons/icon-192x192.png', sizes: '192x192' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css' }],
   ],
-  // themeConfig: {
-  //   logo: { src: './icons/icon-32x32.png' },
-  //   footer: {
-  //     message: '',
-  //     copyright: '',
-  //   },
-  //   nav: [
-  //     // {
-  //     //   text: 'Lab',
-  //     //   items: [
-  //     //     { text: 'Plugin', link: '/guide/lab/plugin' },
-  //     //     { text: 'Edit', link: '/guide/lab/edit' },
-  //     //     { text: 'Form', link: '/guide/lab/form' },
-  //     //   ]
-  //     // },
-  //     { text: 'ydrive', link: '/guide' },
-  //   ],
-  //   // *custom
-  //   navCustom: [
-  //     {
-  //       icon: 'mdi mdi-home',
-  //       items: [
-  //         { text: '', 
-  //           items: [
-  //             { text: 'Setting', link: '/guide/mine/setting', icon: 'mdi mdi-cog-outline' },
-  //             { text: 'Scan Device', link: '/guide/mine/setting', icon: 'mdi mdi-devices' },
-  //           ]
-  //         },
-  //         {
-  //           text: '',
-  //           items: [
-  //             { text: 'My Profile', link: '/guide/mine/profile', icon: 'mdi mdi-card-account-details-outline'},
-  //             { text: 'My Docs', link: '/guide/mine/docs', icon: 'mdi mdi-file-document-outline' },
-  //             // { text: 'My Device', link: '/guide/mine/device', icon: 'mdi mdi-devices' },
-  //             { text: 'My Bucket', link: '/guide/mine/bucket', icon: 'mdi mdi-bucket-outline' },
-  //             { text: 'My Qbix', link: '/guide/mine/qbix', icon: 'mdi mdi-cube-outline' },
-  //             { text: 'My Assets', link: '/guide/mine/assets', icon: 'mdi mdi-bank-outline' },
-  //           ]
-  //         }
-  //       ]
-  //     },
-  //   ],
-  //   search : {
-  //     provider: 'local'
-  //   },
-  //   // socialLinks: [
-  //   //   { icon: "mdi mdi-account", link: "" },
-  //   // ],
-  // },
+  themeConfig: {
+    sidebar: [
+      {
+        text: '123',
+        items: [
+          { text: '456', link: '' }
+        ]
+      },
+      {
+        text: '简介',
+        collapsed: false,
+        items: [
+          { text: '什么是 VitePress？', link: 'what-is-vitepress' },
+          { text: '快速开始', link: 'getting-started' },
+          { text: '路由', link: 'routing' },
+          { text: '部署', link: 'deploy' }
+        ]
+      },
+    ]
+    // search : {
+    //   provider: 'local'
+    // },
+    // socialLinks: [
+    //   { icon: "mdi mdi-account", link: "" },
+    // ],
+  },
   pwa: {
     mode: 'development',
     // registerType: 'autoUpdate',

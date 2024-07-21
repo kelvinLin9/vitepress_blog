@@ -1,11 +1,6 @@
 <script lang="ts" setup>
 import JMenuLink from './JMenuLink.vue'
 import JMenuGroup from './JMenuGroup.vue'
-import Login from '../../../../src/components/auth/Login.vue'
-import { storeToRefs } from "pinia";
-import { useAuthStore } from "../../../../src/store/auth";
-const authStore = useAuthStore();
-const { user, Uid } = storeToRefs(authStore)
 
 defineProps<{
   items?: any[]
